@@ -1,11 +1,20 @@
-import { FaCheckCircle, FaComments, FaTicketAlt, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaPaintBrush } from "react-icons/fa"
+import { FaCheckCircle, FaComments, FaSprayCan, FaTint, FaStar, FaFemale, FaTicketAlt, FaCut, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaPaintBrush } from "react-icons/fa"
 import { codeFiles } from "./dataMovieTickets"
 
 export const portfolioItems = [
 	{
 		id: 1,
+		title: "Сайт-визитка мастера парикмахера",
+		description: "Услуги парикмахера с онлайн-записью, выбором услуги и времени.",
+		icon: <FaCut />,
+		tech: ["ReactJS", "Vite"],
+		// link: "#",
+		demo: "https://natalia-vorobeva.github.io/business_card_hairdresser/"
+	},
+	{
+		id: 2,
 		title: "Сайт-визитка мастера шугаринга",
-		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
+		description: "Услуги мастера шугаринга с онлайн-записью, выбором услуги и времени.",
 		icon: <FaHandSparkles />,
 		tech: ["ReactJS", "Vite"],
 		// link: "#",
@@ -14,7 +23,7 @@ export const portfolioItems = [
 	{
 		id: 2,
 		title: "Сайт-визитка мастера шугаринга-2",
-		description: "Студия шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
+		description: "Услуги мастера шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
 		icon: <FaHands />,
 		tech: ["ReactJS", "Vite"],
 		// link: "#",
