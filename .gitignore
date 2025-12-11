@@ -34,3 +34,6 @@ dist-ssr
 {/* 8555990125:AAGi08-9U3QElHb_X1QLfeRNFwKbXB6nozk */}
 
 .vercel
+
+# Local Netlify folder
+.netlify

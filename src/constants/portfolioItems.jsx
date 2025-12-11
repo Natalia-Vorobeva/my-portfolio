@@ -1,7 +1,7 @@
-import { FaCheckCircle, FaComments, FaTicketAlt, FaSpa, FaHandSparkles  } from "react-icons/fa"
+import { FaCheckCircle, FaComments, FaTicketAlt, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaPaintBrush } from "react-icons/fa"
 import { codeFiles } from "./dataMovieTickets"
 
-export const portfolioItems = [	
+export const portfolioItems = [
 	{
 		id: 1,
 		title: "Сайт-визитка мастера шугаринга",
@@ -13,31 +13,49 @@ export const portfolioItems = [
 	},
 	{
 		id: 2,
-		title: "Билетная касса",
-		description: "Система бронирования билетов с выбором мест, онлайн-оплатой и админ-панелью",
-		icon: <FaTicketAlt />,
-		tech: ["ReactJS", "TailwindCSS", "vite", "LocalStorage"],
-		link: "#",
-		demo: "https://natalia-vorobeva.github.io/movie-ticket-system/",
-		code: codeFiles
-
+		title: "Сайт-визитка мастера шугаринга-2",
+		description: "Студия шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
+		icon: <FaHands />,
+		tech: ["ReactJS", "Vite"],
+		// link: "#",
+		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/"
 	},
 	{
 		id: 3,
-		title: "ToDo List",
-		description: "Продуктивное приложение с категориями, тегами, дедлайнами и аналитикой",
-		icon: <FaCheckCircle />,
-		tech: ["ReactJS", "JWT", "Express", "Tailwindcss", "SQLite3"],
-		link: "#",
-		demo: "#"
+		title: "Сайт-визитка мастера маникюра",
+		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
+		icon: <FaPaintBrush />,
+		tech: ["ReactJS", "Vite"],
+		// link: "#",
+		demo: "https://natalia-vorobeva.github.io/business_card_manicure/"
 	},
-	{
-		id: 4,
-		title: "Мессенджер",
-		description: "Чат-приложение в реальном времени с комнатами, файлами и видеозвонками",
-		icon: <FaComments />,
-		tech: ["ReactJS", "Node.js", "Vite", "PostgreSQL"],
-		link: "#",
-		demo: "#"
-	}
+	// {
+	// 	id: 2,
+	// 	title: "Билетная касса",
+	// 	description: "Система бронирования билетов с выбором мест, онлайн-оплатой и админ-панелью",
+	// 	icon: <FaTicketAlt />,
+	// 	tech: ["ReactJS", "TailwindCSS", "vite", "LocalStorage"],
+	// 	link: "#",
+	// 	demo: "https://natalia-vorobeva.github.io/movie-ticket-system/",
+	// 	code: codeFiles
+
+	// },
+	// {
+	// 	id: 3,
+	// 	title: "ToDo List",
+	// 	description: "Продуктивное приложение с категориями, тегами, дедлайнами и аналитикой",
+	// 	icon: <FaCheckCircle />,
+	// 	tech: ["ReactJS", "JWT", "Express", "Tailwindcss", "SQLite3"],
+	// 	link: "#",
+	// 	demo: "#"
+	// },
+	// {
+	// 	id: 4,
+	// 	title: "Мессенджер",
+	// 	description: "Чат-приложение в реальном времени с комнатами, файлами и видеозвонками",
+	// 	icon: <FaComments />,
+	// 	tech: ["ReactJS", "Node.js", "Vite", "PostgreSQL"],
+	// 	link: "#",
+	// 	demo: "#"
+	// }
 ]

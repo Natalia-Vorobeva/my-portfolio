@@ -13,12 +13,10 @@
 		"preview": "vite preview",
 		"predeploy": "npm run build",
 		"deploy": "gh-pages -d dist",
-		"vercel-deploy": "vercel --name my-portfolio"
+		"vercel-deploy": "vercel --prod"
 	},
 	"dependencies": {
-		"@emailjs/browser": "^4.4.1",
 		"dotenv": "^17.2.3",
-		"emailjs": "^4.0.3",
 		"prismjs": "^1.30.0",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",

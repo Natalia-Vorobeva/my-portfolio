@@ -124,7 +124,7 @@ function App() {
 		setCurrentCodeIndex((prev) =>
 			prev === 0 ? codeFiles.length - 1 : prev - 1
 		)
-	}	
+	}
 	const openCodeModal = (index) => {
 		setIsCodeModalOpen(true)
 		setCurrentCodeIndex(0)
@@ -526,7 +526,7 @@ const isAvailable = true;`}</pre>
 
 			<section id="portfolio" className="portfolio">
 				<div className="container">
-					<h2 onClick={() => openCodeModal()} className="section-title">Мои проекты</h2>
+					<h2 className="section-title">Мои проекты</h2>
 					<p className="section-subtitle">Реализованные решения, демонстрирующие мой опыт и навыки</p>
 
 					<div className="portfolio-grid">
@@ -540,8 +540,8 @@ const isAvailable = true;`}</pre>
 										<span key={index} className="tech-tag">{tech}</span>
 									))}
 								</div>
-								<div onClick={() => openCodeModal(index)} className="card-buttons">
-									{/* <a href={item.link} className="card-link">
+								<div className="card-buttons">
+									{/* <a href={item.link}  onClick={() => openCodeModal(index)} className="card-link">
 										Код <FiExternalLink />
 									</a> */}
 
