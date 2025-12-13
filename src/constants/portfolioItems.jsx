@@ -19,6 +19,23 @@ export const portfolioItems = [
 		tech: ["ReactJS", "Vite"],
 		// link: "#",
 		demo: "https://sugar-lux-site.vercel.app/"
+	},	
+	{
+		id: 3,
+		title: "Сайт-визитка мастера маникюра",
+		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
+		icon: <FaPaintBrush />,
+		tech: ["ReactJS", "Vite"],
+		// link: "#",
+		demo: "https://natalia-vorobeva.github.io/business_card_manicure/"
+	},
+	{
+		id: 4,
+		title: "Варианты слайдеров для сайта",
+		description: "Варианты слайдеров для сайта",
+		icon: <FaHands />,
+		tech: ["Swiper", "Embla", "Ligthbox", "Splide", "В доработке..."],
+		demo: "https://natalia-vorobeva.github.io/carousels/"
 	},
 	{
 		id: 2,
@@ -28,15 +45,6 @@ export const portfolioItems = [
 		tech: ["ReactJS", "Vite"],
 		// link: "#",
 		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/"
-	},
-	{
-		id: 3,
-		title: "Сайт-визитка мастера маникюра",
-		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
-		icon: <FaPaintBrush />,
-		tech: ["ReactJS", "Vite"],
-		// link: "#",
-		demo: "https://natalia-vorobeva.github.io/business_card_manicure/"
 	},
 	// {
 	// 	id: 2,
