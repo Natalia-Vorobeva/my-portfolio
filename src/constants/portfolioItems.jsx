@@ -38,7 +38,7 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/carousels/"
 	},
 	{
-		id: 2,
+		id: 5,
 		title: "Сайт-визитка мастера шугаринга-2",
 		description: "Услуги мастера шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
 		icon: <FaHands />,
