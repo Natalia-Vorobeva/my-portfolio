@@ -1,17 +1,99 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-	<meta charset="UTF-8" />
-	<link rel="icon" type="image/svg+xml" href="/my-portfolio/vite.svg" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Визитная карточка</title>
-  <script type="module" crossorigin src="/my-portfolio/assets/index-BpLgeWTk.js"></script>
-  <link rel="stylesheet" crossorigin href="/my-portfolio/assets/index-CB2TwBmB.css">
-</head>
-
-<body>
-	<div id="root"></div>
-</body>
-
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Основные мета-теги -->
+    <title>Наталья Воробьева - Frontend Developer Portfolio</title>
+    <meta name="description" content="Портфолио фронтенд-разработчика Натальи Воробьевой. Современная веб-разработка на React, JavaScript, Node.js" />
+    <meta name="keywords" content="frontend разработчик, React, JavaScript, портфолио, веб-разработка" />
+    
+    <!-- Open Graph мета-теги для соцсетей -->
+    <meta property="og:title" content="Наталья Воробьева - Frontend Developer" />
+    <meta property="og:description" content="Портфолио фронтенд-разработчика. Создаю современные и эффективные веб-приложения" />
+    <meta property="og:image" content="/assets/images/og-image.jpg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ваш-сайт.ru" />
+    
+    <!-- Twitter Card мета-теги -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Наталья Воробьева - Frontend Developer" />
+    <meta name="twitter:description" content="Портфолио фронтенд-разработчика" />
+    
+    <!-- Фавиконки -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    
+    <!-- Предзагрузка шрифтов (если используете) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- GDPR согласие (опционально) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Наталья Воробьева",
+        "jobTitle": "Frontend Developer",
+        "url": "https://my-portfolio-vorobeva.vercel.app/",
+        "sameAs": [
+          "https://t.me/vorobjevaa"
+        ],
+        "knowsAbout": ["React", "JavaScript", "Node.js", "Web Development"]
+      }
+    </script>
+    
+    <!-- NoScript для пользователей без JavaScript -->
+    <noscript>
+      <style>
+        .app { display: none; }
+        .noscript-message {
+          display: block;
+          text-align: center;
+          padding: 50px;
+          font-family: sans-serif;
+        }
+      </style>
+    </noscript>
+    <script type="module" crossorigin src="/my-portfolio/assets/index-BHw1_Np_.js"></script>
+    <link rel="stylesheet" crossorigin href="/my-portfolio/assets/index-ciWa2YHw.css">
+  </head>
+  
+  <body>
+    <!-- Сообщение для пользователей с отключенным JavaScript -->
+    <noscript>
+      <div class="noscript-message">
+        <h1>Для работы сайта необходим JavaScript</h1>
+        <p>Пожалуйста, включите JavaScript в настройках браузера для просмотра портфолио.</p>
+      </div>
+    </noscript>
+    
+    <!-- Корневой элемент для React -->
+    <div id="root"></div>
+    
+    <!-- Аналитика (дублирующаяся на всякий случай, но лучше через компонент) -->
+    <!-- Не нужно добавлять здесь Google Analytics, если используете React компонент -->
+    
+    <!-- Внешние скрипты (если нужны) -->
+    
+    <!-- Yandex.Metrika (опционально) -->
+    <!--
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();
+      for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+     
+      ym(XXXXXX, "init", {
+           clickmap:true,
+           trackLinks:true,
+           accurateTrackBounce:true,
+           webvisor:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/XXXXXX" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    -->
+  </body>
 </html>
