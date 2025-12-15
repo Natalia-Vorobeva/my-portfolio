@@ -7,7 +7,7 @@ export const portfolioItems = [
 		title: "Сайт-визитка мастера парикмахера",
 		description: "Услуги парикмахера с онлайн-записью, выбором услуги и времени.",
 		icon: <FaCut />,
-		tech: ["ReactJS", "Vite"],
+		tech: ["ReactJS", "Vite", "В доработке..."],
 		// link: "#",
 		demo: "https://natalia-vorobeva.github.io/business_card_hairdresser/"
 	},
@@ -34,14 +34,14 @@ export const portfolioItems = [
 		title: "Варианты слайдеров для сайта",
 		description: "Варианты слайдеров для сайта",
 		icon: <FaHands />,
-		tech: ["Swiper", "Embla", "Ligthbox", "Splide", "В доработке..."],
+		tech: ["Swiper", "Embla", "Ligthbox", "Splide"],
 		demo: "https://natalia-vorobeva.github.io/carousels/"
 	},
 	{
 		id: 5,
 		title: "Сайт-визитка мастера шугаринга-2",
 		description: "Услуги мастера шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
-		icon: <FaHands />,
+		icon: <FaCut />,
 		tech: ["ReactJS", "Vite"],
 		// link: "#",
 		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/"
