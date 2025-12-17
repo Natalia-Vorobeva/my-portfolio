@@ -4,6 +4,15 @@ import { codeFiles } from "./dataMovieTickets"
 export const portfolioItems = [
 	{
 		id: 1,
+		title: "Сайт-визитка",
+		description: "Мои услуги детально",
+		icon: <FaStar />,
+		tech: ["ReactJS", "Vite", "Tailwindcss"],
+		// link: "#",
+		demo: "https://visit-card-vorobeva.vercel.app/"
+	},
+	{
+		id: 2,
 		title: "Сайт-визитка мастера парикмахера",
 		description: "Услуги парикмахера с онлайн-записью, выбором услуги и времени.",
 		icon: <FaCut />,
@@ -12,7 +21,7 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/business_card_hairdresser/"
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Сайт-визитка мастера шугаринга",
 		description: "Услуги мастера шугаринга с онлайн-записью, выбором услуги и времени.",
 		icon: <FaHandSparkles />,
@@ -21,7 +30,7 @@ export const portfolioItems = [
 		demo: "https://sugar-lux-site.vercel.app/"
 	},	
 	{
-		id: 3,
+		id: 4,
 		title: "Сайт-визитка мастера маникюра",
 		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
 		icon: <FaPaintBrush />,
@@ -30,7 +39,7 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/business_card_manicure/"
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "Варианты слайдеров для сайта",
 		description: "Варианты слайдеров для сайта",
 		icon: <FaHands />,
@@ -38,7 +47,7 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/carousels/"
 	},
 	{
-		id: 5,
+		id: 6,
 		title: "Сайт-визитка мастера шугаринга-2",
 		description: "Услуги мастера шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
 		icon: <FaCut />,

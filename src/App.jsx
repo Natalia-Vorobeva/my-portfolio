@@ -30,6 +30,7 @@ import {
 } from 'react-icons/fa';
 import foto from './assets/images/Fotoram.io.jpg';
 import AnalyticsDashboard from './components/AnalyticsDashboard.jsx';
+import NeonMarquee from './components/NeonMarquee.jsx';
 import TimelineResult from './components/TimelineResult.jsx';
 const BackgroundSwitcher = React.lazy(() => import('./components/BackgroundSwitcher'));
 import AuroraWaves from './components/backgrounds/AuroraWaves';
@@ -517,6 +518,17 @@ ${formData.message}
 						{/* Десктопная навигация */}
 						<nav className="nav hidden md:flex gap-4 lg:gap-6 items-center">
 							<a
+								href="https://visit-card-vorobeva.vercel.app/"
+								target="_blank"
+								rel="noopener noreferrer"
+								className="nav-link text-light font-medium transition-all duration-300 hover:text-primary relative py-2 text-sm lg:text-base group"
+								onClick={() => trackEvent('navigation', 'engagement', 'Visit Card Site')}
+							>
+								<span className="relative z-10">Сайт-визитка</span>
+								<span className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary transition-all duration-300 group-hover:w-full"></span>
+								<span className="absolute -bottom-1 left-0 w-full h-px bg-gradient-to-r from-primary/0 via-primary/50 to-primary/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+							</a>
+							<a
 								href="#home"
 								className={`nav-link text-light font-medium transition-all duration-300 hover:text-primary relative py-2 text-sm lg:text-base group ${activeSection === 'home' ? 'text-primary' : ''}`}
 								onClick={() => trackEvent('navigation', 'engagement', 'Home Section')}
@@ -620,12 +632,24 @@ ${formData.message}
 									>
 										Контакты
 									</a>
+									<a
+										href="https://visit-card-vorobeva.vercel.app/"
+										target="_blank"
+										rel="noopener noreferrer"
+										onClick={() => {
+											setIsMenuOpen(false);
+											trackEvent('navigation', 'engagement', 'Visit Card Site');
+										}}
+										className="text-light hover:text-primary transition-colors py-2 text-center md:text-left"
+									>
+										Сайт-визитка
+									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 				</header>
-
+<NeonMarquee />
 				<section id="home" className="hero py-20 animate-fade-in">
 					<div className="container">
 						<div className="hero-content grid grid-cols-1 lg:grid-cols-[1.2fr,1fr] gap-12 items-center">
@@ -674,6 +698,15 @@ ${formData.message}
 											onClick={() => trackButtonClick('hero_contact_button')}
 										>
 											Обсудить проект
+										</a>
+										<a
+											href="https://visit-card-vorobeva.vercel.app/" // Замените на ваш URL
+											target="_blank"
+											rel="noopener noreferrer"
+											className="cta-button secondary"
+											onClick={() => trackButtonClick('hero_visit_card_button')}
+										>
+											Больше инфо
 										</a>
 									</div>
 								</div>
@@ -747,7 +780,7 @@ const isAvailable = true;`}
 												window.open(item.demo, '_blank', 'noopener,noreferrer');
 											}}
 										>
-											Демо →
+											Перейти →
 										</a>
 									</div>
 								</div>
