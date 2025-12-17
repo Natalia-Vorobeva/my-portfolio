@@ -1,4 +1,4 @@
-import{j as r}from"./index-ecg7YOia.js";function o({onSwitch:t,currentBackground:e}){const n=["Neon","Aurora","Gradient","Space"],s=["🌈","🌊","💫","🌌"];return r.jsxs("button",{onClick:t,className:`\r
+import{j as r}from"./index-BCXWnCuR.js";function o({onSwitch:t,currentBackground:e}){const n=["Neon","Aurora","Gradient","Space"],s=["🌈","🌊","💫","🌌"];return r.jsxs("button",{onClick:t,className:`\r
         fixed \r
         bottom-4 right-4\r
         sm:bottom-6 sm:right-6\r
