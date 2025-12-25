@@ -649,7 +649,7 @@ ${formData.message}
 						</div>
 					</div>
 				</header>
-<NeonMarquee />
+				<NeonMarquee />
 				<section id="home" className="hero py-20 animate-fade-in">
 					<div className="container">
 						<div className="hero-content grid grid-cols-1 lg:grid-cols-[1.2fr,1fr] gap-12 items-center">
@@ -1242,3 +1242,5 @@ const isAvailable = true;`}
 }
 
 export default App;
+
+ 

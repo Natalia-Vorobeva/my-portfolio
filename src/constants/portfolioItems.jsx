@@ -1,4 +1,4 @@
-import { FaCheckCircle, FaComments, FaSprayCan, FaTint, FaStar, FaFemale, FaTicketAlt, FaCut, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaPaintBrush } from "react-icons/fa"
+import { FaCheckCircle, FaComments, FaSprayCan, FaTint, FaStar, FaFemale, FaTicketAlt, FaCut, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaNewspaper, FaPaintBrush, FaMapMarkedAlt, FaBullseye, FaChartLine, FaGlobeAmericas } from "react-icons/fa"
 import { codeFiles } from "./dataMovieTickets"
 
 export const portfolioItems = [
@@ -13,24 +13,33 @@ export const portfolioItems = [
 	},
 	{
 		id: 2,
-		title: "Сайт-визитка мастера парикмахера",
-		description: "Услуги парикмахера с онлайн-записью, выбором услуги и времени.",
-		icon: <FaCut />,
-		tech: ["ReactJS", "Vite", "В доработке..."],
+		title: "Сайт-визитка в официальном стиле",
+		description: "Официальный сайт-визитка дипломата с мультиязычной поддержкой (русский/английский/французский), адаптивным дизайном, формой обратной связи и строгим корпоративным стилем",
+		icon: <FaGem />,
+		tech: ["ReactJS", "Vite"],
 		// link: "#",
-		demo: "https://natalia-vorobeva.github.io/business_card_hairdresser/"
+		demo: "https://officialstyle.vercel.app/"
 	},
 	{
 		id: 3,
+		title: "Сайт-визитка мастера парикмахера",
+		description: "Услуги парикмахера с онлайн-записью, выбором услуги и времени",
+		icon: <FaCut />,
+		tech: ["ReactJS", "Vite"],
+		// link: "#",
+		demo: "https://hairdresser-portfolio.vercel.app/"
+	},
+	{
+		id: 4,
 		title: "Сайт-визитка мастера шугаринга",
 		description: "Услуги мастера шугаринга с онлайн-записью, выбором услуги и времени.",
 		icon: <FaHandSparkles />,
 		tech: ["ReactJS", "Vite"],
 		// link: "#",
 		demo: "https://sugar-lux-site.vercel.app/"
-	},	
+	},
 	{
-		id: 4,
+		id: 5,
 		title: "Сайт-визитка мастера маникюра",
 		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
 		icon: <FaPaintBrush />,
@@ -39,7 +48,7 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/business_card_manicure/"
 	},
 	{
-		id: 5,
+		id: 6,
 		title: "Варианты слайдеров для сайта",
 		description: "Варианты слайдеров для сайта",
 		icon: <FaHands />,
@@ -47,7 +56,16 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/carousels/"
 	},
 	{
-		id: 6,
+		
+		id: 7,
+		title: "Мировой дашборд новостей",
+		description: "Дашборд для агрегации и визуализации мировых новостей с фильтрацией по регионам, темам и источникам в реальном времени",
+		icon: <FaGlobeAmericas />,
+		tech: ["d3.js"],
+		demo: "https://d3-news.vercel.app/"
+	},
+	{
+		id: 8,
 		title: "Сайт-визитка мастера шугаринга-2",
 		description: "Услуги мастера шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
 		icon: <FaCut />,
