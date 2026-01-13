@@ -1,5 +1,5 @@
 import React from 'react';
-import PortfolioCard from '../../portfolio/PortfolioCard.jsx';
+import PortfolioCard from './PortfolioCard.jsx';
 import { portfolioItems } from '../../constants/portfolioItems.jsx';
 
 const Portfolio = ({ openCodeModal, trackEvent }) => {

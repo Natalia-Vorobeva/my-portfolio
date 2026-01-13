@@ -40,23 +40,16 @@ function BackgroundSwitcher({ onSwitch, currentBackground }) {
       "
       title={`Текущий фон: ${backgroundNames[currentBackground]}. Нажмите для смены`}
     >
-      {/* Scan animation effect - скрыта на очень маленьких экранах для производительности */}
       <div className="hidden sm:block absolute inset-0 w-full h-full"
         style={{
           background: 'linear-gradient(45deg, transparent 30%, rgba(0, 255, 136, 0.1) 50%, transparent 70%)',
           animation: 'scan 3s linear infinite'
         }}
-      ></div>
-      
-      {/* Background for contrast */}
-      <div className="absolute inset-0 rounded-full bg-black/30 -z-10"></div>
-      
-      {/* Emoji/Icon */}
+      ></div>      
+      <div className="absolute inset-0 rounded-full bg-black/30 -z-10"></div>      
       <span className="relative z-10">
         {emojis[currentBackground]}
       </span>
-      
-      {/* Tooltip on hover (desktop only) */}
       <div className="
         absolute -top-10 left-1/2 -translate-x-1/2
         px-2 py-1.5
@@ -77,7 +70,7 @@ function BackgroundSwitcher({ onSwitch, currentBackground }) {
       ">
         Фон: {backgroundNames[currentBackground]}
         <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 bg-slate-800 border-b border-r border-emerald-400/30 rotate-45"></div>
-      </div>
+      </div>			
     </button>
   );
 }

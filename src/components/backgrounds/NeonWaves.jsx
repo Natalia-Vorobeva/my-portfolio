@@ -16,7 +16,6 @@ function NeonWaves() {
         animation: 'neon-shift 15s ease infinite'
       }}
     >
-      {/* Neon Grid */}
       <div 
         className="absolute w-full h-full"
         style={{
@@ -27,8 +26,6 @@ function NeonWaves() {
           animation: 'grid-pulse 3s ease-in-out infinite'
         }}
       ></div>
-
-      {/* Neon Lines */}
       <div 
         className="absolute w-[150%] left-[-25%] h-px blur-px"
         style={{
@@ -53,8 +50,6 @@ function NeonWaves() {
           animation: 'neon-scan 4s linear infinite 2s'
         }}
       ></div>
-
-      {/* Floating Neon */}
       <div 
         className="absolute rounded-full blur-xl"
         style={{

@@ -1,16 +1,36 @@
 import { FaCheckCircle, FaComments, FaSprayCan, FaTint, FaStar, FaFemale, FaTicketAlt, FaCut, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaNewspaper, FaPaintBrush, FaMapMarkedAlt, FaBullseye, FaChartLine, FaGlobeAmericas } from "react-icons/fa"
-import { codeFiles } from "./dataMovieTickets"
+import { dataMovieTickets } from "./dataMovieTickets"
+import { dataMessenger } from './dataMessenger'
+import { dataTodoList } from './dataTodoList'
 
 export const portfolioItems = [
 	{
-		id: 1,
-		title: "Сайт-визитка",
-		description: "Мои услуги детально",
-		icon: <FaStar />,
-		tech: ["ReactJS", "Vite", "Tailwindcss"],
-		// link: "#",
-		demo: "https://visit-card-vorobeva.vercel.app/"
+		id: 13,
+		title: "ToDo List",
+		description: "",
+		icon: <FaCheckCircle />,
+		tech: ["ReactJS", "JWT", "Express", "SQLite3", "Tailwindcss", "Render.com"],
+		link: dataTodoList,
+		demo: "https://todo-react-node-sqlite-jwt.onrender.com/register"
 	},
+	{
+		id: 14,
+		title: "Мессенджер",
+		description: "Чат-приложение в реальном времени с комнатами, файлами и видеозвонками",
+		icon: <FaComments />,
+		tech: ["ReactJS", "Node.js", "Vite", "PostgreSQL", "vercel.com"],
+		// link: dataMessenger,
+		demo: "https://messenger-full.vercel.app/"
+	},
+	// {
+	// 	id: 1,
+	// 	title: "Сайт-визитка",
+	// 	description: "Мои услуги детально",
+	// 	icon: <FaStar />,
+	// 	tech: ["ReactJS", "Vite", "Tailwindcss"],
+	// 	// link: "#",
+	// 	demo: "https://visit-card-vorobeva.vercel.app/"
+	// },
 	{
 		id: 2,
 		title: "Сайт-визитка в официальном стиле",
@@ -56,7 +76,7 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/carousels/"
 	},
 	{
-		
+
 		id: 7,
 		title: "Мировой дашборд новостей",
 		description: "Дашборд для агрегации и визуализации мировых новостей с фильтрацией по регионам, темам и источникам в реальном времени",
@@ -81,25 +101,8 @@ export const portfolioItems = [
 	// 	tech: ["ReactJS", "TailwindCSS", "vite", "LocalStorage"],
 	// 	link: "#",
 	// 	demo: "https://natalia-vorobeva.github.io/movie-ticket-system/",
-	// 	code: codeFiles
+	// 	code: codeFilesMovieTickets
 
 	// },
-	// {
-	// 	id: 3,
-	// 	title: "ToDo List",
-	// 	description: "Продуктивное приложение с категориями, тегами, дедлайнами и аналитикой",
-	// 	icon: <FaCheckCircle />,
-	// 	tech: ["ReactJS", "JWT", "Express", "Tailwindcss", "SQLite3"],
-	// 	link: "#",
-	// 	demo: "#"
-	// },
-	// {
-	// 	id: 4,
-	// 	title: "Мессенджер",
-	// 	description: "Чат-приложение в реальном времени с комнатами, файлами и видеозвонками",
-	// 	icon: <FaComments />,
-	// 	tech: ["ReactJS", "Node.js", "Vite", "PostgreSQL"],
-	// 	link: "#",
-	// 	demo: "#"
-	// }
+
 ]

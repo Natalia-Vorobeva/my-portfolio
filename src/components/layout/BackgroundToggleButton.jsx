@@ -12,27 +12,20 @@ const BackgroundToggleButton = ({ backgroundType, setBackgroundType }) => {
 
 	const handleBackgroundChange = () => {
 		setIsChanging(true);
-
 		const currentIndex = allBackgrounds.findIndex(bg => bg.id === backgroundType);
 		const nextIndex = (currentIndex + 1) % allBackgrounds.length;
 		const nextBackground = allBackgrounds[nextIndex];
-
 		setBackgroundType(nextBackground.id);
-
-		// Анимация завершения
 		setTimeout(() => setIsChanging(false), 300);
 	};
 
 	return (
-
-
 		<button
 			className={`background-switcher ${isChanging ? 'changing' : ''}`}
 			onClick={handleBackgroundChange}
 			title="Сменить фон"
 			aria-label="Сменить фон"
 		>
-
 		</button>
 
 	);

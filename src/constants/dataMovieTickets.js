@@ -1,5 +1,5 @@
 // export const codeFilesMovieTickets = [
-export const codeFiles = [
+export const dataMovieTickets = [
 	{
 		id: 1,
 		name: 'App.jsx',

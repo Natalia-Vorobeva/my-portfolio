@@ -1,5 +1,4 @@
-// export const codeFilesMovieTickets = [
-export const codeFiles = [
+export const dataTodoList = [
 	{
 		id: 1,
 		name: 'constants.js',

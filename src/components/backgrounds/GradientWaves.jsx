@@ -8,7 +8,6 @@ function GradientWaves() {
         animation: 'gradient-shift 20s ease infinite'
       }}
     >
-      {/* Wave Layers */}
       <div 
         className="absolute top-[-50%] left-[-50%] right-[-50%] bottom-[-50%] origin-center"
         style={{
@@ -30,8 +29,6 @@ function GradientWaves() {
           animation: 'wave-move-3 35s ease-in-out infinite'
         }}
       ></div>
-
-      {/* Floating Elements */}
       <div 
         className="absolute rounded-full bg-white/5 backdrop-blur border border-white/10"
         style={{

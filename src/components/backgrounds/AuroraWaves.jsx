@@ -9,7 +9,6 @@ function AuroraWaves() {
         `
       }}
     >
-      {/* Aurora Layer */}
       <div className="absolute top-0 left-0 right-0 h-3/5 overflow-hidden">
         <div 
           className="absolute w-[150%] left-[-25%] h-24 bg-gradient-to-r from-transparent via-emerald-400 via-sky-400 via-violet-700 via-fuchsia-500 via-emerald-400 to-transparent opacity-50 blur-3xl"
@@ -33,8 +32,6 @@ function AuroraWaves() {
           }}
         ></div>
       </div>
-
-      {/* Mountain Silhouette */}
       <div className="absolute bottom-0 left-0 right-0 h-48"
         style={{
           background: `
@@ -46,8 +43,6 @@ function AuroraWaves() {
           backgroundPosition: 'bottom, bottom'
         }}
       ></div>
-
-      {/* Glowing Particles */}
       <div className="absolute w-1 h-1 bg-emerald-400 rounded-full blur-sm shadow-[0_0_10px_#00ff95,0_0_20px_#00ff95]"
         style={{
           top: '20%',

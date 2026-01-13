@@ -9,7 +9,6 @@ function SpaceOcean() {
           linear-gradient(to bottom, #0a1222 0%, #152238 50%, #1e2a44 100%)`
       }}
     >
-      {/* Star Field */}
       <div 
         className="absolute w-full h-full"
         style={{
@@ -21,8 +20,6 @@ function SpaceOcean() {
           animation: 'stars-twinkle 5s ease-in-out infinite'
         }}
       ></div>
-
-      {/* Nebula */}
       <div 
         className="absolute w-[200%] h-[200%] top-[-50%] left-[-50%] blur-3xl"
         style={{
@@ -33,8 +30,6 @@ function SpaceOcean() {
           animation: 'nebula-drift 30s ease-in-out infinite'
         }}
       ></div>
-
-      {/* Ocean Wave */}
       <div 
         className="absolute bottom-0 left-0 right-0 h-48 rounded-[50%_50%_0_0]"
         style={{
@@ -50,8 +45,6 @@ function SpaceOcean() {
           }}
         ></div>
       </div>
-
-      {/* Shooting Stars */}
       <div 
         className="absolute w-0.5 h-0.5 bg-white rounded-full shadow-[0_0_10px_2px_rgba(255,255,255,0.8)]"
         style={{
