@@ -1,108 +1,102 @@
-import { FaCheckCircle, FaComments, FaSprayCan, FaTint, FaStar, FaFemale, FaTicketAlt, FaCut, FaSpa, FaHandSparkles, FaHands, FaGem, FaPalette, FaNewspaper, FaPaintBrush, FaMapMarkedAlt, FaBullseye, FaChartLine, FaGlobeAmericas } from "react-icons/fa"
-import { dataMovieTickets } from "./dataMovieTickets"
-import { dataMessenger } from './dataMessenger'
-import { dataTodoList } from './dataTodoList'
+import { FaCheckCircle, FaComments, FaCut, FaHandSparkles, FaHands, FaGem, FaPaintBrush, FaGlobeAmericas } from "react-icons/fa"
+// import { dataTodoList } from '../constants/dataTodoList'
+// import { dataMessenger } from '../constants/dataMessenger'
 
 export const portfolioItems = [
 	{
-		id: 13,
-		title: "ToDo List",
-		description: "",
+		id: 1,
+		title: "ToDo List Fullstack",
+		description: "Приложение для управления задачами с регистрацией, аутентификацией через JWT и SQLite базой данных",
 		icon: <FaCheckCircle />,
 		tech: ["ReactJS", "JWT", "Express", "SQLite3", "Tailwindcss", "Render.com"],
-		link: dataTodoList,
-		demo: "https://todo-react-node-sqlite-jwt.onrender.com/register"
+		featured: true,
+		demo: "https://todo-react-node-sqlite-jwt.onrender.com/register",
+		// link: dataTodoList
+		image: "/images/todolist.jpg", 
 	},
-	{
-		id: 14,
-		title: "Мессенджер",
-		description: "Чат-приложение в реальном времени с комнатами, файлами и видеозвонками",
-		icon: <FaComments />,
-		tech: ["ReactJS", "Node.js", "Vite", "PostgreSQL", "vercel.com"],
-		// link: dataMessenger,
-		demo: "https://messenger-full.vercel.app/"
-	},
-	// {
-	// 	id: 1,
-	// 	title: "Сайт-визитка",
-	// 	description: "Мои услуги детально",
-	// 	icon: <FaStar />,
-	// 	tech: ["ReactJS", "Vite", "Tailwindcss"],
-	// 	// link: "#",
-	// 	demo: "https://visit-card-vorobeva.vercel.app/"
-	// },
 	{
 		id: 2,
-		title: "Сайт-визитка в официальном стиле",
-		description: "Официальный сайт-визитка дипломата с мультиязычной поддержкой (русский/английский/французский), адаптивным дизайном, формой обратной связи и строгим корпоративным стилем",
-		icon: <FaGem />,
-		tech: ["ReactJS", "Vite"],
-		// link: "#",
-		demo: "https://officialstyle.vercel.app/"
+		title: "Мессенджер Real-time",
+		description: "Чат-приложение с комментами, загрузкой файлов",
+		icon: <FaComments />,
+		tech: ["ReactJS", "Node.js", "PostgreSQL", "Vercel"],
+		featured: true,
+		demo: "https://messenger-full.vercel.app/",
+		// link: dataMessenger
+		image: "/images/messenger.jpg",
 	},
 	{
 		id: 3,
-		title: "Сайт-визитка мастера парикмахера",
-		description: "Услуги парикмахера с онлайн-записью, выбором услуги и времени",
-		icon: <FaCut />,
-		tech: ["ReactJS", "Vite"],
-		// link: "#",
-		demo: "https://hairdresser-portfolio.vercel.app/"
+		title: "Тестовое задание - верстка",
+		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
+		icon: <FaComments />,
+		tech: ["ReactJS", "jQuery", "Bootstrap4", "Vite"],
+		demo: "https://petersburg-time-course.vercel.app/#about-course",
+		image: "/images/peterburg-course.jpg",
 	},
 	{
 		id: 4,
-		title: "Сайт-визитка мастера шугаринга",
-		description: "Услуги мастера шугаринга с онлайн-записью, выбором услуги и времени.",
-		icon: <FaHandSparkles />,
-		tech: ["ReactJS", "Vite"],
-		// link: "#",
-		demo: "https://sugar-lux-site.vercel.app/"
+		title: "Сайт-визитка дипломата",
+		description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
+		icon: <FaGem />,
+		tech: ["ReactJS", "Vite", "i18n", "Мультиязычность"],
+		featured: true,
+		demo: "https://officialstyle.vercel.app/",
+		image: "/images/official.png",
 	},
 	{
 		id: 5,
-		title: "Сайт-визитка мастера маникюра",
-		description: "Студия шугаринга с онлайн-записью, выбором услуги и времени.",
-		icon: <FaPaintBrush />,
-		tech: ["ReactJS", "Vite"],
-		// link: "#",
-		demo: "https://natalia-vorobeva.github.io/business_card_manicure/"
+		title: "Сайт парикмахера",
+		description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
+		icon: <FaCut />,
+		tech: ["ReactJS", "Vite", "Online Booking"],
+		demo: "https://hairdresser-portfolio.vercel.app/",
+		image: "/images/hairdresser.jpg",
 	},
+	// {
+		// id: 6,
+		// title: "Сайт мастера шугаринга",
+		// description: "Студия красоты с онлайн-записью, выбором услуг и галереей работ",
+		// icon: <FaHandSparkles />,
+		// tech: ["ReactJS", "Vite", "Booking System"],
+		// demo: "",
+		// image: "/images/portfolio/sugaring.jpg",
+	// },
 	{
-		id: 6,
-		title: "Варианты слайдеров для сайта",
-		description: "Варианты слайдеров для сайта",
-		icon: <FaHands />,
-		tech: ["Swiper", "Embla", "Ligthbox", "Splide"],
-		demo: "https://natalia-vorobeva.github.io/carousels/"
-	},
-	{
-
 		id: 7,
-		title: "Мировой дашборд новостей",
-		description: "Дашборд для агрегации и визуализации мировых новостей с фильтрацией по регионам, темам и источникам в реальном времени",
-		icon: <FaGlobeAmericas />,
-		tech: ["d3.js"],
-		demo: "https://d3-news.vercel.app/"
+		title: "Студия маникюра",
+		description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
+		icon: <FaPaintBrush />,
+		tech: ["ReactJS", "Vite", "Tailwindcss"],
+		demo: "https://natalia-vorobeva.github.io/business_card_manicure/",
+		image: "/images/manicure.jpg",
 	},
 	{
 		id: 8,
-		title: "Сайт-визитка мастера шугаринга-2",
-		description: "Услуги мастера шугаринга с фото-галереей, выбором услуги, онлайн-записью .",
-		icon: <FaCut />,
-		tech: ["ReactJS", "Vite"],
-		// link: "#",
-		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/"
+		title: "Карусели и слайдеры",
+		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
+		icon: <FaHands />,
+		tech: ["Swiper", "Embla", "Splide", "Lightbox", "JavaScript"],
+		demo: "https://natalia-vorobeva.github.io/carousels/",
+		image: "/images/sliders.jpg",
 	},
-	// {
-	// 	id: 2,
-	// 	title: "Билетная касса",
-	// 	description: "Система бронирования билетов с выбором мест, онлайн-оплатой и админ-панелью",
-	// 	icon: <FaTicketAlt />,
-	// 	tech: ["ReactJS", "TailwindCSS", "vite", "LocalStorage"],
-	// 	link: "#",
-	// 	demo: "https://natalia-vorobeva.github.io/movie-ticket-system/",
-	// 	code: codeFilesMovieTickets
-
-	// },
-
-]
+	{
+		id: 9,
+		title: "Дашборд мировых новостей",
+		description: "Визуализация и фильтрация мировых новостей в реальном времени с помощью d3.js",
+		icon: <FaGlobeAmericas />,
+		tech: ["d3.js", "Data Visualization", "API Integration", "News Aggregation"],
+		featured: true,
+		demo: "https://d3-news.vercel.app/",
+		image: "/images/news-dashboard.jpg",
+	},
+	{
+		id: 10,
+		title: "Студия шугаринга",
+		description: "Еще один вариант сайта для мастера шугаринга с галереей и онлайн-записью",
+		icon: <FaHandSparkles />,
+		tech: ["ReactJS", "Vite", "Photo Gallery"],
+		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/",
+		image: "/images/shugaring.jpg",
+	},
+];

@@ -1,4 +1,3 @@
-// utils/analytics.js
 export const trackEvent = (action, category, label, value = null) => {
   if (window.gtag) {
     window.gtag('event', action, {
@@ -9,7 +8,6 @@ export const trackEvent = (action, category, label, value = null) => {
   }
 };
 
-// Примеры событий
 export const trackPageView = (pageName) => {
   trackEvent('page_view', 'navigation', pageName);
 };

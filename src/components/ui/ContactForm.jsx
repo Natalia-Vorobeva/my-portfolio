@@ -329,7 +329,7 @@ ${formData.message}
 
           <div className="captcha-container bg-gray-900/50 p-4 rounded-xl border border-primary/20">
             <div className="captcha-question flex items-center gap-3 mb-4">
-              <span className="captcha-icon text-2xl">🧮</span>
+              <span className="captcha-icon text-2xl">🔢</span>
               <span className="captcha-text text-xl font-bold text-light font-mono">{captcha.question}</span>
             </div>
 

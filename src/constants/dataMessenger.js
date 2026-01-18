@@ -1,9 +1,9 @@
 export const dataMessenger = [
-	{
-		id: 1,
-		name: 'vercel.json',
-		language: 'json',
-		content: `{
+  {
+    id: 1,
+    name: 'vercel.json',
+    language: 'json',
+    content: `{
   "rewrites": [
     {
       "source": "/api/(.*)",
@@ -45,222 +45,218 @@ export const dataMessenger = [
       ]
     }
   ]
-}'	
-`
-	},
-	{
-		id: 2,
-		name: 'vite.config.js',
-		language: 'javascript',
-		content: `
-import { defineConfig } from "vite"
-import react from "@vitejs/plugin-react"
-import path from "path"
-
-export default defineConfig({	
-	server: {
-		proxy: {
-			'/api': {
-				target: 'http://a0830433.xsph.ru',
-				changeOrigin: true,
-				secure: false,
-				rewrite: (path) => path.replace(/^/api/, ''),
-			}
-		},
-	},
-	plugins: [react()],
-	build: {
-		outDir: 'dist',
-		sourcemap: false,
-	},
-})
 }`
-	},
-	{
-		id: 3,
-		name: 'apiSlice.js',
-		language: 'javascript',
-		content: `import { createSlice } from '@reduxjs/toolkit'
+  },
+  {
+    id: 2,
+    name: 'vite.config.js',
+    language: 'javascript',
+    content: `import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+
+export default defineConfig({
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://a0830433.xsph.ru',
+        changeOrigin: true,
+        secure: false,
+        rewrite: (path) => path.replace(/^\\/api/, ''),
+      }
+    },
+  },
+  plugins: [react()],
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+  },
+});`
+  },
+  {
+    id: 3,
+    name: 'apiSlice.js',
+    language: 'javascript',
+    content: `import { createSlice } from '@reduxjs/toolkit';
 
 export const apiSlice = createSlice({
-	name: 'api',
-	initialState: {
-		idLast: null,
-		isModal: false,
-		dataMessages: {
-			leftCol: [],
-			centralCol: [],
-			rightCol: [],
-		},
-		btnFilterFavourites: true,
-		isReverse: false,
-		isSearched: false,
-		choice: {}
-	},
+  name: 'api',
+  initialState: {
+    idLast: null,
+    isModal: false,
+    dataMessages: {
+      leftCol: [],
+      centralCol: [],
+      rightCol: [],
+    },
+    btnFilterFavourites: true,
+    isReverse: false,
+    isSearched: false,
+    choice: {}
+  },
 
-	reducers: {
-		setLastId: (state, action) => {
-			state.idLast = action.payload
-		},
-		setChoice: (state, action) => {
-			state.choice = action.payload
-		},
-		setStateBtnFilterFavourites: (state, action) => {
-			state.btnFilterFavourites = action.payload
-		},
+  reducers: {
+    setLastId: (state, action) => {
+      state.idLast = action.payload;
+    },
+    setChoice: (state, action) => {
+      state.choice = action.payload;
+    },
+    setStateBtnFilterFavourites: (state, action) => {
+      state.btnFilterFavourites = action.payload;
+    },
 
-		setIsModal: (state, action) => {
-			state.isModal = action.payload
-		},
+    setIsModal: (state, action) => {
+      state.isModal = action.payload;
+    },
 
-		setDataMessages: (state, action) => {
-	let arrModified = action.payload.map(object => {
-		const dateModified = object.date.replace(/ /g, 'T').concat("Z")
-		return { ...object, date: dateModified }
-	})
-	
-	// Сортируем по дате (новые сверху по умолчанию)
-	arrModified.sort((a, b) => {
-		return new Date(b.date) - new Date(a.date)
-	})
-	
-	const ids = arrModified.map(object => object.id)
-	let id = Math.max(...ids)
-	
-	state.idLast = id
-	state.dataMessages.centralCol = arrModified
-},
+    setDataMessages: (state, action) => {
+      let arrModified = action.payload.map(object => {
+        const dateModified = object.date.replace(/ /g, 'T').concat("Z");
+        return { ...object, date: dateModified };
+      });
+      
+      // Сортируем по дате (новые сверху по умолчанию)
+      arrModified.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      });
+      
+      const ids = arrModified.map(object => object.id);
+      let id = Math.max(...ids);
+      
+      state.idLast = id;
+      state.dataMessages.centralCol = arrModified;
+    },
 
-	setNewMessages: (state, action) => {
-	const currentCentralCol = state.dataMessages.centralCol
-	const newCentralCol = action.payload.centralCol
-	
-	if (JSON.stringify(currentCentralCol) !== JSON.stringify(newCentralCol)) {
-		state.dataMessages = {
-			...state.dataMessages,
-			centralCol: newCentralCol
-		}
-		
-		if (newCentralCol.length > 0) {
-			const ids = newCentralCol.map(msg => msg.id)
-			state.idLast = Math.max(...ids)
-		}
-	}
-},
+    setNewMessages: (state, action) => {
+      const currentCentralCol = state.dataMessages.centralCol;
+      const newCentralCol = action.payload.centralCol;
+      
+      if (JSON.stringify(currentCentralCol) !== JSON.stringify(newCentralCol)) {
+        state.dataMessages = {
+          ...state.dataMessages,
+          centralCol: newCentralCol
+        };
+        
+        if (newCentralCol.length > 0) {
+          const ids = newCentralCol.map(msg => msg.id);
+          state.idLast = Math.max(...ids);
+        }
+      }
+    },
 
-		setOldMessages: (state, action) => {
-			const initialArr = state.dataMessages.centralCol
-			let arr = initialArr.concat(action.payload)
-			let arrModified = arr.map(object => {
-				const dateModified = object.date.replace(/ /g, 'T').concat("Z")
-				return { ...object, date: dateModified }
-			})
-			arrModified.sort((a, b) => {
-				return new Date(b.date) - new Date(a.date)
-			})
-			state.dataMessages.centralCol = arrModified
-		},
+    setOldMessages: (state, action) => {
+      const initialArr = state.dataMessages.centralCol;
+      let arr = initialArr.concat(action.payload);
+      let arrModified = arr.map(object => {
+        const dateModified = object.date.replace(/ /g, 'T').concat("Z");
+        return { ...object, date: dateModified };
+      });
+      arrModified.sort((a, b) => {
+        return new Date(b.date) - new Date(a.date);
+      });
+      state.dataMessages.centralCol = arrModified;
+    },
 
-		handleButton: (state, action) => {
-			const payload = action.payload
-			const filterData = (data) => data.filter((element) => JSON.stringify(element) !== JSON.stringify(action.payload.object))
+    handleButton: (state, action) => {
+      const payload = action.payload;
+      const filterData = (data) => data.filter((element) => JSON.stringify(element) !== JSON.stringify(action.payload.object));
 
-			if (payload.column == "central") {
-				if (payload.buttonName == "left") {
-					const newArr = [payload.object, ...state.dataMessages.leftCol]
-					let arr = newArr.sort((a, b) => {
-						return new Date(b.date) - new Date(a.date)
-					})
-					state.dataMessages.leftCol = arr
-				}
-				if (payload.buttonName == "right") {
-					const newArr = [payload.object, ...state.dataMessages.rightCol]
-					let arr = newArr.sort((a, b) => {
-						return new Date(b.date) - new Date(a.date)
-					})
-					state.dataMessages.rightCol = arr
-				}
-				state.dataMessages = { ...state.dataMessages, centralCol: filterData(state.dataMessages.centralCol) }
-			} else if (payload.column == "right") {
-				if (payload.buttonName == "left") {
-					const newArr = [payload.object, ...state.dataMessages.leftCol]
-					let arr = newArr.sort((a, b) => {
-						return new Date(b.date) - new Date(a.date)
-					})
-					state.dataMessages.leftCol = arr
-				}
-				if (payload.buttonName == "central") {
-					const newArr = [payload.object, ...state.dataMessages.centralCol]
-					let arr = newArr.sort((a, b) => {
-						return new Date(b.date) - new Date(a.date)
-					})
-					state.dataMessages.centralCol = arr
-				}
-				state.dataMessages = { ...state.dataMessages, rightCol: filterData(state.dataMessages.rightCol) }
-			} else if (payload.column == "left") {
-				if (payload.buttonName == "right") {
-					const newArr = [payload.object, ...state.dataMessages.rightCol]
-					let arr = newArr.sort((a, b) => {
-						return new Date(b.date) - new Date(a.date)
-					})
-					state.dataMessages.rightCol = arr
-				}
-				if (payload.buttonName == "central") {
-					const newArr = [payload.object, ...state.dataMessages.centralCol]
-					let arr = newArr.sort((a, b) => {
-						return new Date(b.date) - new Date(a.date)
-					})
-					state.dataMessages.centralCol = arr
-				}
-				state.dataMessages = { ...state.dataMessages, leftCol: filterData(state.dataMessages.leftCol) }
-			}
-		},
+      if (payload.column === "central") {
+        if (payload.buttonName === "left") {
+          const newArr = [payload.object, ...state.dataMessages.leftCol];
+          let arr = newArr.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          });
+          state.dataMessages.leftCol = arr;
+        }
+        if (payload.buttonName === "right") {
+          const newArr = [payload.object, ...state.dataMessages.rightCol];
+          let arr = newArr.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          });
+          state.dataMessages.rightCol = arr;
+        }
+        state.dataMessages = { ...state.dataMessages, centralCol: filterData(state.dataMessages.centralCol) };
+      } else if (payload.column === "right") {
+        if (payload.buttonName === "left") {
+          const newArr = [payload.object, ...state.dataMessages.leftCol];
+          let arr = newArr.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          });
+          state.dataMessages.leftCol = arr;
+        }
+        if (payload.buttonName === "central") {
+          const newArr = [payload.object, ...state.dataMessages.centralCol];
+          let arr = newArr.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          });
+          state.dataMessages.centralCol = arr;
+        }
+        state.dataMessages = { ...state.dataMessages, rightCol: filterData(state.dataMessages.rightCol) };
+      } else if (payload.column === "left") {
+        if (payload.buttonName === "right") {
+          const newArr = [payload.object, ...state.dataMessages.rightCol];
+          let arr = newArr.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          });
+          state.dataMessages.rightCol = arr;
+        }
+        if (payload.buttonName === "central") {
+          const newArr = [payload.object, ...state.dataMessages.centralCol];
+          let arr = newArr.sort((a, b) => {
+            return new Date(b.date) - new Date(a.date);
+          });
+          state.dataMessages.centralCol = arr;
+        }
+        state.dataMessages = { ...state.dataMessages, leftCol: filterData(state.dataMessages.leftCol) };
+      }
+    },
 
-		handleDeleteCard: (state, action) => {
-			const payload = action.payload
-			const filterData = (data) => data.filter(
-				(element) => JSON.stringify(element) !== JSON.stringify(action.payload.object))
-			if (payload.column == "central") {
-				state.dataMessages = { ...state.dataMessages, centralCol: filterData(state.dataMessages.centralCol) }
-			} else if (payload.column == "right") {
-				state.dataMessages = { ...state.dataMessages, rightCol: filterData(state.dataMessages.rightCol) }
-			} else if (payload.column == "left") {
-				state.dataMessages = { ...state.dataMessages, leftCol: filterData(state.dataMessages.leftCol) }
-			}
-		},
+    handleDeleteCard: (state, action) => {
+      const payload = action.payload;
+      const filterData = (data) => data.filter(
+        (element) => JSON.stringify(element) !== JSON.stringify(action.payload.object));
+      if (payload.column === "central") {
+        state.dataMessages = { ...state.dataMessages, centralCol: filterData(state.dataMessages.centralCol) };
+      } else if (payload.column === "right") {
+        state.dataMessages = { ...state.dataMessages, rightCol: filterData(state.dataMessages.rightCol) };
+      } else if (payload.column === "left") {
+        state.dataMessages = { ...state.dataMessages, leftCol: filterData(state.dataMessages.leftCol) };
+      }
+    },
 
-		handleAddingFavourires: (state, action) => {
-			let payload = action.payload
-			state.dataMessages = payload
-		},
+    handleAddingFavourires: (state, action) => {
+      let payload = action.payload;
+      state.dataMessages = payload;
+    },
 
-		onToggleReverse: (state, action) => {
-			state.isReverse = action.payload
-		}
-	}
-})
+    onToggleReverse: (state, action) => {
+      state.isReverse = action.payload;
+    }
+  }
+});
 
 export const {
-	setLastId,
-	setIsModal,
-	setDataMessages,
-	setNewMessages,
-	setOldMessages,
-	handleButton,
-	handleDeleteCard,
-	handleAddingFavourires,
-	setStateBtnFilterFavourites,
-	setChoice,
-	onToggleReverse } = apiSlice.actions
+  setLastId,
+  setIsModal,
+  setDataMessages,
+  setNewMessages,
+  setOldMessages,
+  handleButton,
+  handleDeleteCard,
+  handleAddingFavourires,
+  setStateBtnFilterFavourites,
+  setChoice,
+  onToggleReverse } = apiSlice.actions;
 
-export default apiSlice.reducer
-`
-	},
-	{
-		id: 4,
-		name: '_variables.scss',
-		language: 'scss',
-		content: `@use "sass:color";
+export default apiSlice.reducer;`
+  },
+  {
+    id: 4,
+    name: '_variables.scss',
+    language: 'scss',
+    content: `@use "sass:color";
 @use "sass:map";
 @use "sass:list";
 @use "sass:string";
@@ -479,12 +475,12 @@ $breakpoint-lg: 992px;
 $breakpoint-xl: 1200px;
 $breakpoint-xxl: 1400px;
 
-
 // ============================================
 // ПЕРЕМЕННЫЕ ДЛЯ ВАШЕГО ОШИБОЧНОГО КОДА
 // ============================================
 
-$primary-hover-dark: darken-color($primary-hover, 10%);
+// Исправлено: заменили darken-color на color.adjust
+$primary-hover-dark: color.adjust($primary-hover, $lightness: -10%);
 
 // Дополнительные переменные для форм
 $form-box-shadow: $form-shadow;
@@ -518,7 +514,7 @@ $star-color: rgb(238, 234, 132);
 $star-color-active: #FFC107;
 
 // ============================================
-// ФУНКЦИИ ДЛЯ РАБОТЫ С ЦВЕТАМИ )
+// ФУНКЦИИ ДЛЯ РАБОТЫ С ЦВЕТАМИ
 // ============================================
 
 @function transparentize-color($color, $amount) {
@@ -544,12 +540,11 @@ $star-color-active: #FFC107;
 @mixin color-transition($property: color, $duration: $transition-base) {
   transition: $property $duration ease;
 }`
-	},
-	{
-		id: 5,
-		name: 'App.jsx',
-		language: 'javascript',
-		content: `
-`
-	}
-]
+  },
+  {
+    id: 5,
+    name: 'App.jsx',
+    language: 'jsx',
+    content: `// App.jsx будет загружен отдельно`
+  }
+];

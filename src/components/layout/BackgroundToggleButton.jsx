@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const BackgroundToggleButton = ({ backgroundType, setBackgroundType }) => {
 	const [isChanging, setIsChanging] = useState(false);

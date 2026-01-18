@@ -1,4 +1,4 @@
-import { useLayoutEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import Prism from 'prismjs';
 import { FiFileText, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 
@@ -98,4 +98,4 @@ const CodeModal = ({
   );
 };
 
-export default CodeModal;
+export default React.memo(CodeModal);
