@@ -14,7 +14,7 @@ import { useCodeModal } from './hooks/useCodeModal';
 import { useAnalytics } from './hooks/useAnalytics';
 import { trackEvent } from './utils/tracking';
 import { portfolioItems } from './constants/portfolioItems';
-import foto from './assets/images/Fotoram.io.jpg';
+import photo from './assets/images/Fotoram.io.jpg';
 
 const NeonMarquee = lazy(() => import('./components/shared/NeonMarquee'));
 const PortfolioSection = React.lazy(() => import('./components/sections/PortfolioSection'));
@@ -139,14 +139,14 @@ const App = () => {
 
 			<div className="content-wrapper relative z-10">
 				<Header
-					avatar={foto}
+					avatar={photo}
 					activeSection={activeSection}
 					onMenuClick={handleMenuClick}
 				/>
 				<Suspense fallback={<div className="h-12 bg-gray-900" />}>
 					<NeonMarquee />
 				</Suspense>
-				<HeroSection avatar={foto} />
+				<HeroSection avatar={photo} />
 				{/* <TimelineResult /> */}
 				<Suspense fallback={
 					<div className="flex flex-col items-right justify-center py-20">
@@ -162,7 +162,6 @@ const App = () => {
 				{/* <AboutSection /> */}
 				<ContactSection />
 				<Footer onToggleAnalytics={toggleAnalytics} />
-
 				{showAnalytics && (
 					<AnalyticsModal onClose={toggleAnalytics} />
 				)}

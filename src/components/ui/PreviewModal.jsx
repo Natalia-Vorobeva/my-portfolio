@@ -11,6 +11,49 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 
 	const projectImages = item?.images || (item?.image ? [item.image] : []);
 
+	// Проверяем, есть ли исходный код (строка ссылки или не пустой массив)
+	const hasCode = useCallback(() => {
+		if (!item?.link) return false;
+		
+		// Если это строка (ссылка на GitHub или другой репозиторий)
+		if (typeof item.link === 'string') {
+			return item.link.trim().length > 0;
+		}
+		
+		// Если это массив - проверяем не пустой ли он
+		if (Array.isArray(item.link)) {
+			return item.link.length > 0;
+		}
+		
+		// Если это объект (но не массив и не строка)
+		if (typeof item.link === 'object' && item.link !== null) {
+			// Проверяем, есть ли в объекте хоть что-то
+			return Object.keys(item.link).length > 0;
+		}
+		
+		return false;
+	}, [item?.link]);
+
+	// Определяем тип ссылки на код
+	const getCodeLinkType = useCallback(() => {
+		if (!item?.link) return null;
+		
+		if (typeof item.link === 'string') {
+			// Проверяем, это GitHub ссылка или другая
+			if (item.link.includes('github.com')) {
+				return 'github';
+			}
+			return 'external';
+		}
+		
+		// Если это массив или объект с файлами кода
+		if (Array.isArray(item.link) || (typeof item.link === 'object' && item.link !== null)) {
+			return 'files';
+		}
+		
+		return null;
+	}, [item?.link]);
+
 	const handlePrevImage = useCallback((e) => {
 		e.stopPropagation();
 		setCurrentImageIndex(prev =>
@@ -26,14 +69,22 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 	}, [projectImages.length]);
 
 	const handleCodeClick = useCallback(() => {
-		onClose();
-		if (onOpenCodeModal && item?.id) {
-			setTimeout(() => {
-				const index = parseInt(item.id) - 1;
-				onOpenCodeModal(index >= 0 ? index : 0);
-			}, 300);
+		const codeType = getCodeLinkType();
+		
+		if (codeType === 'github' || codeType === 'external') {
+			// Если это внешняя ссылка - открываем в новой вкладке
+			window.open(item.link, '_blank', 'noopener,noreferrer');
+		} else if (codeType === 'files') {
+			// Если это файлы кода - открываем модальное окно с кодом
+			onClose();
+			if (onOpenCodeModal && item?.id) {
+				setTimeout(() => {
+					const index = parseInt(item.id) - 1;
+					onOpenCodeModal(index >= 0 ? index : 0);
+				}, 300);
+			}
 		}
-	}, [onClose, onOpenCodeModal, item?.id]);
+	}, [onClose, onOpenCodeModal, item?.id, item?.link, getCodeLinkType]);
 
 	useEffect(() => {
 		const handleEscape = (e) => {
@@ -106,20 +157,23 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 
 	if (!isOpen || !item) return null;
 
+	const codeAvailable = hasCode();
+	const codeType = getCodeLinkType();
+
 	return (
-	<div
-  className="fixed inset-0 z-[1001] flex items-start justify-center bg-black/90 backdrop-blur-sm transition-opacity duration-300 pt-20 pb-8"
-  onClick={onClose}
-  role="dialog"
-  aria-modal="true"
-  aria-labelledby="modal-title"
->
-  <div
-    ref={modalRef}
-    className="bg-gradient-to-br from-gray-900/95 to-dark/95 rounded-2xl border border-primary/20 w-full max-w-6xl overflow-hidden animate-modal-appear shadow-2xl shadow-black/50 mt-8 mb-8 max-h-[calc(100vh-10rem)]"
-    onClick={(e) => e.stopPropagation()}
-    tabIndex="-1"
-  >
+		<div
+			className="fixed inset-0 z-[1001] flex items-start justify-center bg-black/90 backdrop-blur-sm transition-opacity duration-300 pt-20 pb-8"
+			onClick={onClose}
+			role="dialog"
+			aria-modal="true"
+			aria-labelledby="modal-title"
+		>
+			<div
+				ref={modalRef}
+				className="bg-gradient-to-br from-gray-900/95 to-dark/95 rounded-2xl border border-primary/20 w-full max-w-6xl overflow-hidden animate-modal-appear shadow-2xl shadow-black/50 mt-8 mb-8 max-h-[calc(100vh-10rem)]"
+				onClick={(e) => e.stopPropagation()}
+				tabIndex="-1"
+			>
 				<div className="flex items-center justify-between p-6 border-b border-gray-800/50 bg-gradient-to-r from-gray-900/50 to-dark/50 backdrop-blur-sm">
 					<div className="flex-1 pr-4">
 						<div className="flex items-center gap-3 mb-2">
@@ -145,6 +199,7 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 				</div>
 
 				<div className="flex flex-col md:flex-row h-[calc(92vh-80px)]">
+					{/* ЛЕВАЯ КОЛОНКА - КАРТИНКИ */}
 					<div className="md:w-3/5 p-6 border-r border-gray-800/50 overflow-y-auto custom-scrollbar">
 						<div className="relative bg-gradient-to-br from-gray-900/50 to-dark/50 rounded-xl border border-gray-800/50 overflow-hidden shadow-lg">
 							<div className="bg-gradient-to-br from-gray-900 to-black flex items-center justify-center h-[500px] md:h-[calc(92vh-200px)]">
@@ -221,6 +276,8 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 								)}
 							</div>
 						</div>
+
+						{/* Миниатюры изображений */}
 						{projectImages.length > 1 && (
 							<div className="mt-4">
 								<p className="text-sm text-gray-400 mb-2 flex items-center gap-2">
@@ -251,6 +308,7 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 						)}
 					</div>
 
+					{/* ПРАВАЯ КОЛОНКА - ИНФОРМАЦИЯ */}
 					<div className="md:w-2/5 p-6 overflow-y-auto custom-scrollbar">
 						<div className="mb-8">
 							<h3 className="text-lg font-semibold text-light mb-4 flex items-center gap-2">
@@ -285,18 +343,27 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 								<span className="text-lg font-semibold">Открыть демо-версию</span>
 							</a>
 
-							<div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-								<button
-									onClick={handleCodeClick}
-									className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-800/50 text-gray-300 rounded-xl hover:bg-gray-800 hover:text-white transition-all duration-300 font-medium border border-gray-700/50 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/50 disabled:opacity-50 disabled:cursor-not-allowed"
-									disabled={!item.link}
-									title={item.link ? 'Посмотреть исходный код' : 'Исходный код временно недоступен'}
-								>
-									<FiCode />
-									<span>Исходный код</span>
-								</button>
+							<div className={`grid ${(codeAvailable || item.github) ? 'grid-cols-2' : 'grid-cols-1'} gap-3`}>
+								{/* Кнопка "Исходный код" показывается только если есть доступный код */}
+								{codeAvailable && (
+									<button
+										onClick={handleCodeClick}
+										className="flex items-center justify-center gap-2 px-4 py-3 bg-gray-800/50 text-gray-300 rounded-xl hover:bg-gray-800 hover:text-white transition-all duration-300 font-medium border border-gray-700/50 hover:border-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/50"
+										title={
+											codeType === 'github' ? 'Открыть репозиторий на GitHub' :
+											codeType === 'external' ? 'Открыть исходный код' :
+											'Просмотреть исходный код'
+										}
+									>
+										<FiCode />
+										<span>
+											{codeType === 'github' ? 'GitHub' : 'Исходный код'}
+										</span>
+									</button>
+								)}
 
-								{item.github && (
+								{/* Кнопка GitHub (отдельная от основной ссылки на код) */}
+								{item.github && !(codeType === 'github' && codeAvailable) && (
 									<a
 										href={item.github}
 										target="_blank"
@@ -319,8 +386,11 @@ const PreviewModal = ({ isOpen, onClose, item, onOpenCodeModal }) => {
 								</div>
 								<div className="truncate">
 									<span className="text-gray-500">Код:</span>
-									<span className={`ml-2 ${item.link ? 'text-green-400' : 'text-gray-400'}`}>
-										{item.link ? 'Доступен' : 'По запросу'}
+									<span className={`ml-2 ${codeAvailable ? 'text-green-400' : 'text-gray-400'}`}>
+										{codeAvailable 
+											? (codeType === 'github' ? 'GitHub' : 'Доступен') 
+											: 'По запросу'
+										}
 									</span>
 								</div>
 								<div className="truncate">

@@ -1,96 +1,110 @@
-import React, { useLayoutEffect } from 'react';
-import Prism from 'prismjs';
-import { FiFileText, FiX, FiChevronLeft, FiChevronRight } from 'react-icons/fi';
+// components/ui/CodeModal.js
+import React from 'react';
 
-const CodeModal = ({ 
-  isOpen, 
-  onClose, 
-  codeFiles, 
-  currentCodeIndex, 
-  onPrev, 
-  onNext, 
-  onCopy, 
+const CodeModal = ({
+  isOpen,
+  onClose,
+  codeFiles,
+  currentCodeIndex,
+  onPrev,
+  onNext,
+  onCopy,
   onSetCurrentIndex,
-  copied 
+  copied
 }) => {
-  useLayoutEffect(() => {
-    if (isOpen) {
-      const codeElements = document.querySelectorAll('.code-content code');
-      codeElements.forEach((element) => {
-        Prism.highlightElement(element);
-      });
-    }
-  }, [isOpen, currentCodeIndex]);
+  // console.log('CodeModal props:', { isOpen, codeFiles, currentCodeIndex }); // Уберите console.log в продакшене
 
-  if (!isOpen || !codeFiles) return null;
+  if (!isOpen) return null;
+
+  const currentFile = codeFiles[currentCodeIndex] || {};
+
+  // Проверяем, есть ли контент для копирования
+  const hasCopyableContent = currentFile.content && currentFile.content.trim().length > 0;
 
   return (
-    <div className="code-modal-overlay" onClick={onClose}>
-      <div className="code-modal" onClick={(e) => e.stopPropagation()}>
-        <div className="code-modal-header flex justify-between items-center mb-6">
-          <div className="code-file-info flex items-center gap-3">
-            <FiFileText className="file-icon text-primary text-xl" />
-            <h3 className="text-xl font-bold text-light">{codeFiles[currentCodeIndex].name}</h3>
-            <span className="code-language bg-primary/20 text-primary px-3 py-1 rounded-full text-sm font-semibold">
-              {codeFiles[currentCodeIndex].language}
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+      <div className="relative w-full max-w-4xl max-h-[90vh] bg-gray-900 rounded-xl border border-primary/30 shadow-2xl overflow-hidden">
+        {/* Модальное окно */}
+        <div className="flex justify-between items-center p-4 border-b border-gray-700 bg-gray-800">
+          <div className="flex items-center space-x-2">
+            <div className="flex space-x-1">
+              <div className="w-3 h-3 rounded-full bg-red-500"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="w-3 h-3 rounded-full bg-green-500"></div>
+            </div>
+            <span className="ml-2 text-sm font-mono text-gray-300">
+              {currentFile.fileName || 'code.js'}
+            </span>
+            <span className="text-xs px-2 py-1 bg-gray-700 rounded text-gray-300">
+              {currentFile.language || 'javascript'}
             </span>
           </div>
-          <button className="close-modal-btn bg-transparent border-none text-white text-xl cursor-pointer hover:opacity-70" onClick={onClose}>
-            <FiX />
+          
+          <button
+            onClick={onClose}
+            className="text-gray-400 hover:text-white p-2 hover:bg-gray-700 rounded-lg transition-colors"
+            aria-label="Close modal"
+          >
+            ✕
           </button>
         </div>
 
-        <div className="code-navigation flex justify-between items-center mb-6">
-          <button
-            className="nav-btn prev-btn flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg text-gray-300 border border-gray-700 cursor-pointer transition-all duration-300 hover:bg-gray-700 disabled:opacity-30 disabled:cursor-not-allowed"
-            onClick={onPrev}
-            disabled={codeFiles.length <= 1}
-          >
-            <FiChevronLeft /> Предыдущий
-          </button>
-
-          <div className="nav-indicator">
-            <span className="current-index bg-primary/20 text-primary px-4 py-2 rounded-lg font-bold">{currentCodeIndex + 1}/{codeFiles.length}</span>
-          </div>
-
-          <button
-            className="nav-btn prev-btn flex items-center gap-2 px-4 py-2 bg-gray-800 rounded-lg text-gray-300 border border-gray-700 cursor-pointer transition-all duration-300 hover:bg-gray-700 disabled:opacity-30 disabled:cursor-not-allowed"
-            onClick={onNext}
-            disabled={codeFiles.length <= 1}
-          >
-            Следующий <FiChevronRight />
-          </button>
+        <div className="p-6 overflow-auto max-h-[70vh]">
+          <pre className="text-sm font-mono text-gray-100 whitespace-pre-wrap">
+            {currentFile.content || '// No code available'}
+          </pre>
         </div>
 
-        <div className="file-thumbnails flex flex-wrap gap-2 mb-6">
-          {codeFiles.map((file, index) => (
+        <div className="flex justify-between items-center p-4 border-t border-gray-700 bg-gray-800">
+          <div className="flex space-x-2">
             <button
-              key={file.id}
-              className={`file-thumbnail flex items-center gap-2 px-3 py-2 rounded-lg text-sm transition-all duration-300 ${index === currentCodeIndex ? 'bg-primary/30 text-primary border border-primary/50' : 'bg-gray-800 text-gray-400 border border-gray-700'}`}
-              onClick={() => onSetCurrentIndex(index)}
+              onClick={() => onPrev()}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-gray-200 transition-colors"
+              disabled={codeFiles.length <= 1}
             >
-              <FiFileText />
-              <span>{file.name}</span>
+              ← Prev
             </button>
-          ))}
-        </div>
-
-        <div className="code-container bg-gray-900 rounded-xl overflow-hidden flex-1 flex flex-col">
-          <div className="code-header bg-gray-800 px-4 py-3 flex justify-between items-center">
-            <span className="line-numbers text-sm text-gray-400">Строки: {codeFiles[currentCodeIndex].content.split('\n').length}</span>
             <button
-              className={`copy-btn px-4 py-2 rounded-lg font-medium transition-all duration-300 ${copied ? 'bg-success/20 text-success' : 'bg-primary/20 text-primary hover:bg-primary/30'}`}
-              onClick={onCopy}
+              onClick={() => onNext()}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 rounded-lg text-gray-200 transition-colors"
+              disabled={codeFiles.length <= 1}
             >
-              {copied ? 'Скопировано!' : 'Скопировать код'}
+              Next →
             </button>
           </div>
-          <div className="code-content flex-1 overflow-auto p-4">
-            <pre className="m-0">
-              <code className={`language-${codeFiles[currentCodeIndex].language} text-sm`}>
-                {codeFiles[currentCodeIndex].content}
-              </code>
-            </pre>
+          
+          <div className="flex items-center space-x-4">
+            {codeFiles.length > 1 && (
+              <div className="flex space-x-2">
+                {codeFiles.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => onSetCurrentIndex(index)}
+                    className={`w-2 h-2 rounded-full ${
+                      index === currentCodeIndex ? 'bg-primary' : 'bg-gray-600'
+                    }`}
+                    aria-label={`Go to file ${index + 1}`}
+                  />
+                ))}
+              </div>
+            )}
+            
+            {hasCopyableContent ? (
+              <button
+                onClick={() => onCopy(currentFile.content)}
+                className={`px-4 py-2 rounded-lg transition-colors ${
+                  copied 
+                    ? 'bg-green-600 text-white' 
+                    : 'bg-primary hover:bg-primary/80 text-white'
+                }`}
+              >
+                {copied ? '✓ Copied!' : 'Copy Code'}
+              </button>
+            ) : (
+              <div className="px-4 py-2 rounded-lg bg-gray-700 text-gray-400 cursor-not-allowed">
+                No code to copy
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -98,4 +112,4 @@ const CodeModal = ({
   );
 };
 
-export default React.memo(CodeModal);
+export default CodeModal;
