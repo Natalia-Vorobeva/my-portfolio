@@ -32,11 +32,27 @@ const PortfolioCard = ({ item, onOpenCodeModal, onTrackClick, onOpenPreviewModal
 
 	const hasImage = useMemo(() => item.image && !hasImageError, [item.image, hasImageError]);
 
+	// Проверяем, есть ли код для показа
 	const hasCode = useMemo(() => {
-		return !!item.link && (
-			Array.isArray(item.link) ||
-			(typeof item.link === 'object' && item.link !== null)
-		);
+		// Если link вообще нет или это null/undefined
+		if (!item.link) return false;
+		
+		// Если это массив - проверяем не пустой ли он
+		if (Array.isArray(item.link)) {
+			return item.link.length > 0;
+		}
+		
+		// Если это объект (но не массив)
+		if (typeof item.link === 'object' && item.link !== null) {
+			return Object.keys(item.link).length > 0;
+		}
+		
+		// Если это строка (URL)
+		if (typeof item.link === 'string') {
+			return item.link.trim().length > 0;
+		}
+		
+		return false;
 	}, [item.link]);
 
 	const handleCardClick = useCallback((e) => {
@@ -48,24 +64,24 @@ const PortfolioCard = ({ item, onOpenCodeModal, onTrackClick, onOpenPreviewModal
 
 	return (
 		<div 
-  className={`portfolio-card group relative overflow-hidden transition-all duration-300 ${
-    isGrid 
-      ? 'bg-gradient-to-br from-gray-900/80 to-dark/90 rounded-2xl border border-primary/15 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5' 
-      : 'bg-gradient-to-r from-gray-900/80 to-dark/80 rounded-xl border border-primary/10 hover:border-primary/30'
-  }`}
-  onMouseEnter={() => setIsHovered(true)}
-  onMouseLeave={() => setIsHovered(false)}
-  onClick={(e) => {
-    if (onOpenPreviewModal) {
-      onOpenPreviewModal();
-    }
-  }}
-  style={{
-    transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
-    animation: 'fadeIn 0.6s ease-out',
-    cursor: 'pointer'
-  }}
->
+			className={`portfolio-card group relative overflow-hidden transition-all duration-300 ${
+				isGrid 
+					? 'bg-gradient-to-br from-gray-900/80 to-dark/90 rounded-2xl border border-primary/15 hover:border-primary/30 hover:shadow-xl hover:shadow-primary/5' 
+					: 'bg-gradient-to-r from-gray-900/80 to-dark/80 rounded-xl border border-primary/10 hover:border-primary/30'
+			}`}
+			onMouseEnter={() => setIsHovered(true)}
+			onMouseLeave={() => setIsHovered(false)}
+			onClick={(e) => {
+				if (onOpenPreviewModal) {
+					onOpenPreviewModal();
+				}
+			}}
+			style={{
+				transform: isHovered ? 'translateY(-4px)' : 'translateY(0)',
+				animation: 'fadeIn 0.6s ease-out',
+				cursor: 'pointer'
+			}}
+		>
 			<div className="flex h-40">
 				<div className="w-2/5 relative overflow-hidden">
 					{hasImage ? (
@@ -140,7 +156,7 @@ const PortfolioCard = ({ item, onOpenCodeModal, onTrackClick, onOpenPreviewModal
 							{item.description}
 						</p>
 					</div>
-					<div className="flex gap-2 mt-auto">
+					<div className={`flex gap-2 mt-auto ${hasCode ? '' : 'justify-center'}`}>
 						<button
 							onClick={handleDemoClick}
 							className="demo-btn flex-1 flex items-center justify-center gap-2 px-3 py-2 bg-gradient-to-r from-primary to-secondary text-white rounded-lg hover:shadow-lg hover:shadow-primary/20 transition-all duration-300 text-xs font-medium"
@@ -150,18 +166,17 @@ const PortfolioCard = ({ item, onOpenCodeModal, onTrackClick, onOpenPreviewModal
 							<span>Демо</span>
 						</button>
 
-						<button
-							onClick={handleCodeClick}
-							className={`code-btn flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 text-xs font-medium ${hasCode
-								? 'bg-gray-800 text-gray-300 border border-gray-700 hover:border-primary hover:text-primary hover:bg-gray-800/80'
-								: 'bg-gray-900/50 text-gray-500 border border-gray-800 cursor-not-allowed'
-								}`}
-							disabled={!hasCode}
-							title={hasCode ? 'Показать исходный код' : 'Исходный код временно недоступен'}
-						>
-							<FaCode className="text-xs" />
-							<span>Код</span>
-						</button>
+						{/* Показываем кнопку "Код" только если есть код */}
+						{hasCode && (
+							<button
+								onClick={handleCodeClick}
+								className="code-btn flex items-center justify-center gap-2 px-3 py-2 rounded-lg transition-all duration-300 text-xs font-medium bg-gray-800 text-gray-300 border border-gray-700 hover:border-primary hover:text-primary hover:bg-gray-800/80"
+								title="Показать исходный код"
+							>
+								<FaCode className="text-xs" />
+								<span>Код</span>
+							</button>
+						)}
 					</div>
 				</div>
 			</div>

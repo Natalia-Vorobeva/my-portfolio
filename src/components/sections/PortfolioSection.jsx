@@ -3,6 +3,7 @@ import PortfolioCard from '../ui/PortfolioCard';
 import { portfolioItems } from '../../constants/portfolioItems';
 import { trackProjectClick } from '../../utils/tracking';
 import PreviewModal from '../ui/PreviewModal';
+import FilterProjects from './FilterProjects'
 
 const PortfolioSection = ({ onOpenCodeModal }) => {
 	const [activeFilter, setActiveFilter] = useState('all');
@@ -32,57 +33,84 @@ const PortfolioSection = ({ onOpenCodeModal }) => {
 			id: 'all',
 			label: 'Все проекты',
 			icon: '💼',
-			gradient: 'from-primary to-secondary'
+			gradient: 'from-primary/90 via-secondary/70 to-primary/90',
+			pattern: 'cells',
+			animation: 'flow'
 		},
 		{
 			id: 'fullstack',
 			label: 'Fullstack',
 			icon: 'Ⓕ',
-			gradient: 'from-accentLight to-accent',
+			gradient: 'from-accentLight/80 via-accent/60 to-accentLight/80',
+			pattern: 'circuit',
+			animation: 'pulse',
 			desc: 'React + Node.js + БД'
 		},
 		{
 			id: 'react',
 			label: 'React',
 			icon: 'Ⓡ',
-			gradient: 'from-cyan-500 to-blue-500'
+			gradient: 'from-cyan-500/70 via-blue-500/50 to-cyan-500/70',
+			pattern: 'waves',
+			animation: 'ripple'
 		},
 		{
 			id: 'landing',
 			label: 'Визитки',
 			icon: 'Ⓑ',
-			gradient: 'from-purple-500 to-pink-500'
+			gradient: 'from-purple-500/70 via-pink-500/50 to-purple-500/70',
+			pattern: 'dots',
+			animation: 'float'
 		},
 		{
 			id: 'i18n',
 			label: 'Мультиязычность',
 			icon: 'Ⓘ',
-			gradient: 'from-green-500 to-teal-500',
+			gradient: 'from-green-500/70 via-teal-500/50 to-green-500/70',
+			pattern: 'grid',
+			animation: 'slide',
 			desc: 'Поддержка нескольких языков'
+		},
+		{
+			id: 'email',
+			label: 'Email-письма',
+			icon: '✉️', // Замените на нужную иконку
+			gradient: 'from-yellow-500/70 via-orange-500/50 to-yellow-500/70',
+			pattern: 'lines',
+			animation: 'scan',
+			desc: 'Адаптивные email-шаблоны'
 		},
 		{
 			id: 'tailwind',
 			label: 'Tailwind',
 			icon: 'Ⓣ',
-			gradient: 'from-cyan-400 to-blue-400'
+			gradient: 'from-cyan-400/70 via-blue-400/50 to-cyan-400/70',
+			pattern: 'lines',
+			animation: 'scan'
 		},
 		{
 			id: 'bootstrap',
 			label: 'Bootstrap',
 			icon: 'Ⓑ',
-			gradient: 'from-violet-500 to-purple-500'
+			gradient: 'from-violet-500/70 via-purple-500/50 to-violet-500/70',
+			pattern: 'checker',
+			animation: 'bounce'
 		},
 		{
 			id: 'sliders',
 			label: 'Слайдеры',
 			icon: 'Ⓒ',
-			gradient: 'from-orange-500 to-red-500'
+			gradient: 'from-orange-500/70 via-red-500/50 to-orange-500/70',
+			pattern: 'zigzag',
+			animation: 'slide-right'
 		},
 		{
 			id: 'd3',
 			label: 'D3.js',
 			icon: 'Ⓓ',
-			gradient: 'from-emerald-500 to-green-500',
+			gradient: 'from-emerald-500/70 via-green-500/50 to-emerald-500/70',
+			pattern: 'graph',
+			animation: 'draw',
 			desc: 'Визуализация данных'
 		},
 	], []);
@@ -116,6 +144,12 @@ const PortfolioSection = ({ onOpenCodeModal }) => {
 			if (item.tech.some(t => t.includes('i18n') || item.description.includes('язык') ||
 				item.description.includes('мультиязыч'))) {
 				categories.push('i18n');
+			}
+			// Добавляем категорию email-писем
+			if (item.title.includes('email') || item.title.includes('Email') ||
+				item.title.includes('письм') || item.description.includes('email') ||
+				item.tech.some(t => t.includes('MJML') || t.includes('email') || t.includes('шаблон'))) {
+				categories.push('email');
 			}
 
 			return { ...item, categories: [...new Set(categories)] };
@@ -188,28 +222,16 @@ const PortfolioSection = ({ onOpenCodeModal }) => {
 					</p>
 				</div>
 
-				<div className="filters-container mb-8">
-					<div className="relative pb-4 mb-6 border-b border-gray-800/50">
-						<div className="flex flex-wrap gap-1 justify-center">
-							{updatedFilterCategories.map(category => (
-								<button
-									key={category.id}
-									onClick={() => setActiveFilter(category.id)}
-									className={`filter-chip-mini group px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 ${activeFilter === category.id
-										? 'bg-primary/10 text-primary border border-primary/30 relative after:absolute after:-bottom-1 after:left-0 after:right-0 after:h-0.5 after:bg-gradient-to-r after:from-primary after:to-secondary'
-										: 'bg-gray-900/30 text-gray-400 border border-gray-700 hover:border-primary/30 hover:text-gray-300'
-										}`}
-									disabled={category.count === 0}
-									title={category.desc || category.label}
-								>
-									<span className="text-sm">{category.icon}</span>
-									<span className="font-medium text-xs">{category.label}</span>
-									<span className="text-xs text-gray-500 ml-0.5">{category.count}</span>
-								</button>
-							))}
-						</div>
-					</div>
-				</div>
+				{/* Используем новый компонент фильтра */}
+				<FilterProjects
+					categories={updatedFilterCategories}
+					activeFilter={activeFilter}
+					onFilterChange={setActiveFilter}
+					variant="compact" // Можно менять: 'organic', 'compact', 'grid', 'segmented', 'scroll'
+					size="medium"     // Можно менять: 'small', 'medium', 'large'
+					showTitle={true}
+					showActiveIndicator={true}
+				/>
 
 				{filteredItems.length > 0 ? (
 					<>
@@ -252,7 +274,6 @@ const PortfolioSection = ({ onOpenCodeModal }) => {
 						</button>
 					</div>
 				)}
-
 			</div>
 		</section>
 	);
