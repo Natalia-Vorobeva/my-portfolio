@@ -131,10 +131,12 @@ const App = () => {
 			{backgrounds[backgroundIndex]}
 
 			<Suspense fallback={<div className="background-switcher-loading"></div>}>
-				<BackgroundSwitcherLazy
-					onSwitch={switchBackground}
-					currentBackground={backgroundIndex}
-				/>
+				{!isPreviewModalOpen && (
+					<BackgroundSwitcherLazy
+						onSwitch={switchBackground}
+						currentBackground={backgroundIndex}
+					/>
+				)}
 			</Suspense>
 
 			<div className="content-wrapper relative z-10">
