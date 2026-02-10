@@ -5,7 +5,7 @@ import { trackProjectClick } from '../../utils/tracking';
 import PreviewModal from '../ui/PreviewModal';
 import FilterProjects from './FilterProjects'
 
-const PortfolioSection = ({ onOpenCodeModal }) => {
+const PortfolioSection = ({ onOpenCodeModal, isPreviewModalOpen, onPreviewModalChange }) => {
 	const [activeFilter, setActiveFilter] = useState('all');
 	const [isGrid, setIsGrid] = useState(true);
 
@@ -15,18 +15,27 @@ const PortfolioSection = ({ onOpenCodeModal }) => {
 	});
 
 	const handleOpenPreviewModal = useCallback((item) => {
+		// Сообщаем родителю, что модалка открыта
+		if (onPreviewModalChange) {
+			onPreviewModalChange(true);
+		}
 		setPreviewModal({
 			isOpen: true,
 			item: item
 		});
-	}, []);
+	}, [onPreviewModalChange]);
 
 	const handleClosePreviewModal = useCallback(() => {
+		// Сообщаем родителю, что модалка закрыта
+		if (onPreviewModalChange) {
+			onPreviewModalChange(false);
+		}
 		setPreviewModal({
 			isOpen: false,
 			item: null
 		});
-	}, []);
+	}, [onPreviewModalChange]);
+
 
 	const filterCategories = useMemo(() => [
 		{

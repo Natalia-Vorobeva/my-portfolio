@@ -125,13 +125,13 @@ const App = () => {
 			}]);
 		}
 	};
-
+	console.log(isPreviewModalOpen, 'isPreviewModalOpen')
 	return (
 		<div className={`app ${isCodeModalOpen ? "no-scroll" : ""} relative min-h-screen`}>
 			{backgrounds[backgroundIndex]}
 
 			<Suspense fallback={<div className="background-switcher-loading"></div>}>
-				{!isPreviewModalOpen && (
+				{isPreviewModalOpen == false && (
 					<BackgroundSwitcherLazy
 						onSwitch={switchBackground}
 						currentBackground={backgroundIndex}
@@ -159,7 +159,10 @@ const App = () => {
 						</div>
 					</div>
 				}>
-					<PortfolioSection onOpenCodeModal={handleOpenCodeModal} />
+					<PortfolioSection
+						isPreviewModalOpen={isPreviewModalOpen}
+						onPreviewModalChange={setIsPreviewModalOpen}
+						onOpenCodeModal={handleOpenCodeModal} />
 				</Suspense>
 				{/* <AboutSection /> */}
 				<ContactSection />

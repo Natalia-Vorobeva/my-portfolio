@@ -30,7 +30,10 @@ const PortfolioCard = ({ item, onOpenCodeModal, onTrackClick, onOpenPreviewModal
 		}
 	}, [item, onOpenPreviewModal]);
 
-	const hasImage = useMemo(() => item.image && !hasImageError, [item.image, hasImageError]);
+	const hasImage = useMemo(() => {
+  const imageUrl = item.images[0]; 
+  return imageUrl && !hasImageError;
+}, [item.image, item.Image, hasImageError]);
 
 	// Проверяем, есть ли код для показа
 	const hasCode = useMemo(() => {
@@ -93,7 +96,7 @@ const PortfolioCard = ({ item, onOpenCodeModal, onTrackClick, onOpenPreviewModal
 						>
 							<div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-gray-800 flex items-center justify-center">
 								<img
-									src={item.image}
+									src={item.images[0]}
 									alt={`Скриншот проекта ${item.title}`}
 									className="max-w-full max-h-full object-contain p-1"
 									onError={() => setHasImageError(true)}

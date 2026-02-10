@@ -29,13 +29,31 @@ export const portfolioItems = [
 		icon: iconNames.check,
 		tech: ["HTML", "CSS", "Email-верстка", "Outlook VML", "Адаптивный дизайн"],
 		featured: true,
-		demo: "https://github.com/Natalia-Vorobeva/email-final-discount",
+		demo: "https://natalia-vorobeva.github.io/email-final-discount/",
 		link: [], // Добавьте реальные ссылки на код
 		images: [
-			"/images/desktop-preview.png",
-			"/images/todolist.jpg",
-			"/images/todolist.jpg"
+			"/images/email-discount-desktop-preview.png",
+			"/images/email-discount-mobile-preview.png",
+			"/images/email-discount-desktop-preview.png",
 		],
+	},
+
+	{
+		id: 8,
+		title: "Карусели и слайдеры",
+		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
+		icon: iconNames.hands,
+		tech: ["Swiper", "Embla", "Splide", "Lightbox", "JavaScript"],
+		demo: "https://natalia-vorobeva.github.io/carousels/",
+		link: [],
+		images: [
+			"/images/sliders.jpg",
+			"/images/slider1.jpg",
+			"/images/slider5.jpg",
+			"/images/slider2.png",
+			"/images/slider4.png",
+			"/images/slider3.png",
+		]
 	},
 	{
 		id: 2,
@@ -46,7 +64,10 @@ export const portfolioItems = [
 		featured: true,
 		demo: "https://todo-react-node-sqlite-jwt.onrender.com/register",
 		link: [],
-		image: "/images/todolist.jpg",
+		images: [
+			"/images/todolist.jpg",
+			"/images/todolist-mobile.png"
+		]
 	},
 	{
 		id: 3,
@@ -55,60 +76,15 @@ export const portfolioItems = [
 		icon: iconNames.comments,
 		tech: ["ReactJS", "Node.js", "PostgreSQL", "Vercel"],
 		featured: true,
-		demo: "https://natalia-vorobeva.github.io/email-final-discount/",
+		demo: "https://messenger-full.vercel.app/",
 		link: [],
-		image: "/images/messenger.jpg",
-	},
-	{
-		id: 4,
-		title: "Тестовое задание - верстка",
-		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
-		icon: iconNames.comments,
-		tech: ["ReactJS", "jQuery", "Bootstrap4", "Vite"],
-		demo: "https://petersburg-time-course.vercel.app/#about-course",
-		link: [],
-		image: "/images/peterburg-course.jpg",
-	},
-	{
-		id: 5,
-		title: "Сайт-визитка дипломата",
-		description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
-		icon: iconNames.gem,
-		tech: ["ReactJS", "Vite", "i18n", "Мультиязычность"],
-		featured: true,
-		demo: "https://officialstyle.vercel.app/",
-		link: [],
-		image: "/images/official.png",
-	},
-	{
-		id: 6,
-		title: "Сайт парикмахера",
-		description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
-		icon: iconNames.cut,
-		tech: ["ReactJS", "Vite", "Online Booking"],
-		demo: "https://hairdresser-portfolio.vercel.app/",
-		link: [],
-		image: "/images/hairdresser.jpg",
-	},
-	{
-		id: 7,
-		title: "Студия маникюра",
-		description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
-		icon: iconNames.paint,
-		tech: ["ReactJS", "Vite", "Tailwindcss"],
-		demo: "https://natalia-vorobeva.github.io/business_card_manicure/",
-		link: [],
-		image: "/images/manicure.jpg",
-	},
-	{
-		id: 8,
-		title: "Карусели и слайдеры",
-		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
-		icon: iconNames.hands,
-		tech: ["Swiper", "Embla", "Splide", "Lightbox", "JavaScript"],
-		demo: "https://natalia-vorobeva.github.io/carousels/",
-		link: [],
-		image: "/images/sliders.jpg",
+		images: [
+			"/images/messenger.jpg",
+			"/images/messenger-mobile.png",
+			"/images/messenger-comment.png",
+			"/images/messenger-comment-mobile.png"
+
+		]
 	},
 	{
 		id: 9,
@@ -119,7 +95,74 @@ export const portfolioItems = [
 		featured: true,
 		demo: "https://d3-news.vercel.app/",
 		link: [],
-		image: "/images/news-dashboard.jpg",
+		images: [
+			"/images/news-dashboard.jpg",
+			"/images/news-dashboard-2.png",
+			"/images/news-dashboard-3.png",
+		]
+	},
+	{
+		id: 4,
+		title: "Верстка Bootstrap",
+		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
+		icon: iconNames.comments,
+		tech: ["ReactJS", "jQuery", "Bootstrap4", "Vite"],
+		demo: "https://petersburg-time-course.vercel.app/#about-course",
+		link: [],
+		images: [
+			"/images/peterburg-course.jpg",
+			"/images/peterburg-course-2.png",
+			"/images/peterburg-course-footer-mobile.png",
+			"/images/peterburg-course-menu-mobile.png",
+		]
+	},
+	{
+		id: 5,
+		title: "Сайт-визитка дипломата",
+		description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
+		icon: iconNames.gem,
+		tech: ["ReactJS", "Vite", "i18n", "Мультиязычность"],
+		featured: true,
+		demo: "https://officialstyle.vercel.app/",
+		link: [],
+		images: [
+			"/images/official.png",
+			"/images/rus_officialstyle.png",
+			"/images/ang_officialstyle.png",
+			"/images/form_officialstyle.png",
+			"/images/form_officialstyle-mobile.png",
+			"/images/menu_officialstyle-mobile.png",
+		]
+	},
+	{
+		id: 6,
+		title: "Сайт парикмахера",
+		description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
+		icon: iconNames.cut,
+		tech: ["ReactJS", "Vite", "Online Booking"],
+		demo: "https://hairdresser-portfolio.vercel.app/",
+		link: [],
+		images: [
+			"/images/hairdresser.png",
+			"/images/hairdresser.jpg",
+			"/images/hairdresser-menu-mobile.png",
+			"/images/carousel_hairdresser-mobile.png",
+			"/images/form_hairdresser-mobile.png",
+		]
+	},
+	{
+		id: 7,
+		title: "Студия маникюра",
+		description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
+		icon: iconNames.paint,
+		tech: ["ReactJS", "Vite", "Tailwindcss"],
+		demo: "https://natalia-vorobeva.github.io/business_card_manicure/",
+		link: [],
+		images: [
+			"/images/manicure.jpg",
+			"/images/gallery-manicure.png",
+			"/images/form-manicure.png",
+		]
 	},
 	{
 		id: 10,
@@ -129,6 +172,10 @@ export const portfolioItems = [
 		tech: ["ReactJS", "Vite", "Photo Gallery"],
 		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/",
 		link: [],
-		image: "/images/shugaring.jpg",
+		images: [
+			"/images/shugaring.jpg",
+			"/images/shugaring-2.png",
+			"/images/shugaring-3.jpg",
+		]
 	},
 ];
