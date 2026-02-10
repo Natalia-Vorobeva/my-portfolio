@@ -8,17 +8,18 @@ import {
 	FaPaintBrush,
 	FaGlobeAmericas
 } from "react-icons/fa"
+import { getImageUrl } from '../utils/paths';
 
 // Имена иконок для отложенной загрузки
 export const iconNames = {
-	check: "FaCheckCircle",
-	comments: "FaComments",
-	cut: "FaCut",
-	sparkles: "FaHandSparkles",
-	hands: "FaHands",
-	gem: "FaGem",
-	paint: "FaPaintBrush",
-	globe: "FaGlobeAmericas"
+	check: FaCheckCircle,
+	comments: FaComments,
+	cut: FaCut,
+	sparkles: FaHandSparkles,
+	hands: FaHands,
+	gem: FaGem,
+	paint: FaPaintBrush,
+	globe: FaGlobeAmericas
 };
 
 export const portfolioItems = [
@@ -32,14 +33,14 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/email-final-discount/",
 		link: [], // Добавьте реальные ссылки на код
 		images: [
-			"/images/email-discount-desktop-preview.png",
-			"/images/email-discount-mobile-preview.png",
-			"/images/email-discount-desktop-preview.png",
+			getImageUrl("email-discount-desktop-preview.png"),
+			getImageUrl("email-discount-mobile-preview.png"),
+			getImageUrl("email-discount-desktop-footer.png")
 		],
 	},
 
 	{
-		id: 8,
+		id: 2,
 		title: "Карусели и слайдеры",
 		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
 		icon: iconNames.hands,
@@ -47,16 +48,16 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/carousels/",
 		link: [],
 		images: [
-			"/images/sliders.jpg",
-			"/images/slider1.jpg",
-			"/images/slider5.jpg",
-			"/images/slider2.png",
-			"/images/slider4.png",
-			"/images/slider3.png",
+			getImageUrl("sliders.jpg"),
+			getImageUrl("slider1.jpg"),
+			getImageUrl("slider5.jpg"),
+			getImageUrl("slider2.png"),
+			getImageUrl("slider4.png"),
+			getImageUrl("slider3.png")
 		]
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "ToDo List Fullstack",
 		description: "Приложение для управления задачами с регистрацией, аутентификацией через JWT и SQLite базой данных",
 		icon: iconNames.check,
@@ -65,12 +66,12 @@ export const portfolioItems = [
 		demo: "https://todo-react-node-sqlite-jwt.onrender.com/register",
 		link: [],
 		images: [
-			"/images/todolist.jpg",
-			"/images/todolist-mobile.png"
+			getImageUrl("todolist.jpg"),
+			getImageUrl("todolist-mobile.png")
 		]
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "Мессенджер Real-time",
 		description: "Чат-приложение с комментами, загрузкой файлов",
 		icon: iconNames.comments,
@@ -79,15 +80,14 @@ export const portfolioItems = [
 		demo: "https://messenger-full.vercel.app/",
 		link: [],
 		images: [
-			"/images/messenger.jpg",
-			"/images/messenger-mobile.png",
-			"/images/messenger-comment.png",
-			"/images/messenger-comment-mobile.png"
-
+			getImageUrl("messenger.jpg"),
+			getImageUrl("messenger-mobile.png"),
+			getImageUrl("messenger-comment.png"),
+			getImageUrl("messenger-comment-mobile.png")
 		]
 	},
 	{
-		id: 9,
+		id: 5,
 		title: "Дашборд мировых новостей",
 		description: "Визуализация и фильтрация мировых новостей в реальном времени с помощью d3.js",
 		icon: iconNames.globe,
@@ -96,13 +96,13 @@ export const portfolioItems = [
 		demo: "https://d3-news.vercel.app/",
 		link: [],
 		images: [
-			"/images/news-dashboard.jpg",
-			"/images/news-dashboard-2.png",
-			"/images/news-dashboard-3.png",
+			getImageUrl("news-dashboard.jpg"),
+			getImageUrl("news-dashboard-2.png"),
+			getImageUrl("news-dashboard-3.png")
 		]
 	},
 	{
-		id: 4,
+		id: 6,
 		title: "Верстка Bootstrap",
 		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
 		icon: iconNames.comments,
@@ -110,14 +110,14 @@ export const portfolioItems = [
 		demo: "https://petersburg-time-course.vercel.app/#about-course",
 		link: [],
 		images: [
-			"/images/peterburg-course.jpg",
-			"/images/peterburg-course-2.png",
-			"/images/peterburg-course-footer-mobile.png",
-			"/images/peterburg-course-menu-mobile.png",
+			getImageUrl("peterburg-course.jpg"),
+			getImageUrl("peterburg-course-2.png"),
+			getImageUrl("peterburg-course-footer-mobile.png"),
+			getImageUrl("peterburg-course-menu-mobile.png")
 		]
 	},
 	{
-		id: 5,
+		id: 7,
 		title: "Сайт-визитка дипломата",
 		description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
 		icon: iconNames.gem,
@@ -126,16 +126,16 @@ export const portfolioItems = [
 		demo: "https://officialstyle.vercel.app/",
 		link: [],
 		images: [
-			"/images/official.png",
-			"/images/rus_officialstyle.png",
-			"/images/ang_officialstyle.png",
-			"/images/form_officialstyle.png",
-			"/images/form_officialstyle-mobile.png",
-			"/images/menu_officialstyle-mobile.png",
+			getImageUrl("official.png"),
+			getImageUrl("rus_officialstyle.png"),
+			getImageUrl("ang_officialstyle.png"),
+			getImageUrl("form_officialstyle.png"),
+			getImageUrl("form_officialstyle-mobile.png"),
+			getImageUrl("menu_officialstyle-mobile.png")
 		]
 	},
 	{
-		id: 6,
+		id: 8,
 		title: "Сайт парикмахера",
 		description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
 		icon: iconNames.cut,
@@ -143,15 +143,15 @@ export const portfolioItems = [
 		demo: "https://hairdresser-portfolio.vercel.app/",
 		link: [],
 		images: [
-			"/images/hairdresser.png",
-			"/images/hairdresser.jpg",
-			"/images/hairdresser-menu-mobile.png",
-			"/images/carousel_hairdresser-mobile.png",
-			"/images/form_hairdresser-mobile.png",
+			getImageUrl("hairdresser.png"),
+			getImageUrl("hairdresser.jpg"),
+			getImageUrl("hairdresser-menu-mobile.png"),
+			getImageUrl("carousel_hairdresser-mobile.png"),
+			getImageUrl("form_hairdresser-mobile.png")
 		]
 	},
 	{
-		id: 7,
+		id: 9,
 		title: "Студия маникюра",
 		description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
 		icon: iconNames.paint,
@@ -159,9 +159,9 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/business_card_manicure/",
 		link: [],
 		images: [
-			"/images/manicure.jpg",
-			"/images/gallery-manicure.png",
-			"/images/form-manicure.png",
+			getImageUrl("manicure.jpg"),
+			getImageUrl("gallery-manicure.png"),
+			getImageUrl("form-manicure.png")
 		]
 	},
 	{
@@ -173,9 +173,9 @@ export const portfolioItems = [
 		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/",
 		link: [],
 		images: [
-			"/images/shugaring.jpg",
-			"/images/shugaring-2.png",
-			"/images/shugaring-3.jpg",
+			getImageUrl("shugaring.jpg"),
+			getImageUrl("shugaring-2.png"),
+			getImageUrl("shugaring-3.jpg")			
 		]
 	},
 ];
