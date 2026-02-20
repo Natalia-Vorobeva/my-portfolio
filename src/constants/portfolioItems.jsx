@@ -23,6 +23,21 @@ export const iconNames = {
 };
 
 export const portfolioItems = [
+  {
+    id: 11,
+    title: "Мессенджер с WebSocket и TypeScript",
+    description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в SQLite.",
+    icon: iconNames.comments,
+    tech: ["React 19", "TypeScript", "Redux Toolkit", "Socket.IO", "Node.js", "Express", "SQLite", "Vite", "Vitest"],
+    featured: true,
+    demo: "https://messenger-ts-websocket-unit.vercel.app",
+    link: ["https://github.com/Natalia-Vorobeva/messenger_ts_websocket_unit"],
+    images: [
+      getImageUrl("messenger-websocket-desktop-1.png"),
+      getImageUrl("messenger-websocket-desktop-2.png"),
+      getImageUrl("messenger-websocket-mobile.png")
+    ]
+  },
 	{
 		id: 1,
 		title: "Email-письмо",
@@ -31,7 +46,7 @@ export const portfolioItems = [
 		tech: ["HTML", "CSS", "Email-верстка", "Outlook VML", "Адаптивный дизайн"],
 		featured: true,
 		demo: "https://natalia-vorobeva.github.io/email-final-discount/",
-		link: [], // Добавьте реальные ссылки на код
+		link: [],
 		images: [
 			getImageUrl("email-discount-desktop-preview.png"),
 			getImageUrl("email-discount-mobile-preview.png"),
