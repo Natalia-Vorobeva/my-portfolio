@@ -34,7 +34,7 @@ export const portfolioItems = [
     link: ["https://github.com/Natalia-Vorobeva/messenger_ts_websocket_unit"],
     images: [
       getImageUrl("messenger-socket-info.png"),
-      getImageUrl("messenger-websocket-desktop-2.png"),
+      getImageUrl("messenger-websocket-desktop-1.png"),
       getImageUrl("messenger-websocket-mobile.png")
     ]
   },
