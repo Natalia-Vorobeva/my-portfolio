@@ -26,14 +26,14 @@ export const portfolioItems = [
   {
     id: 11,
     title: "Мессенджер с WebSocket и TypeScript",
-    description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в SQLite.",
+    description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в PostgreSQL в prod и SQLite3 в dev.",
     icon: iconNames.comments,
     tech: ["React 19", "TypeScript", "Redux Toolkit", "Socket.IO", "Node.js", "Express", "SQLite", "Vite", "Vitest"],
     featured: true,
     demo: "https://messenger-ts-websocket-unit.vercel.app",
     link: ["https://github.com/Natalia-Vorobeva/messenger_ts_websocket_unit"],
     images: [
-      getImageUrl("messenger-websocket-desktop-1.png"),
+      getImageUrl("messenger-socket-info.png"),
       getImageUrl("messenger-websocket-desktop-2.png"),
       getImageUrl("messenger-websocket-mobile.png")
     ]
