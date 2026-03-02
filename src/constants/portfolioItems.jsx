@@ -6,7 +6,8 @@ import {
 	FaHands,
 	FaGem,
 	FaPaintBrush,
-	FaGlobeAmericas
+	FaGlobeAmericas,
+	FaTicketAlt
 } from "react-icons/fa"
 import { getImageUrl } from '../utils/paths';
 
@@ -19,7 +20,8 @@ export const iconNames = {
 	hands: FaHands,
 	gem: FaGem,
 	paint: FaPaintBrush,
-	globe: FaGlobeAmericas
+	globe: FaGlobeAmericas,
+	ticket: FaTicketAlt
 };
 
 export const portfolioItems = [
