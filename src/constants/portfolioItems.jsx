@@ -23,6 +23,25 @@ export const iconNames = {
 };
 
 export const portfolioItems = [
+ {
+  id: 12,
+  title: "Ticket Office — онлайн-бронирование билетов",
+  description: "Интерактивный сервис для выбора фильмов, дат и мест в кинотеатре с визуальной схемой зала, таймером бронирования и сохранением данных в localStorage.",
+  icon: iconNames.ticket, // или любую другую иконку, например, из react-icons
+  tech: ["React 19", "JavaScript", "Redux Toolkit", "Vite", "TailwindCSS"],
+  featured: true,
+  demo: "https://ticket-office-booking.vercel.app/",
+  link: ["https://github.com/Natalia-Vorobeva/ticket-office"],
+  images: [
+    getImageUrl("ticket-office-main.png"),
+    getImageUrl("ticket-office-main-2.png"),
+    getImageUrl("ticket-office-main-3.png"),
+    getImageUrl("ticket-office-path.png"),
+    getImageUrl("ticket-office-hall.png"),
+    getImageUrl("ticket-office-halls.png"),
+    getImageUrl("ticket-office-ticket.png")
+  ]
+}б
   {
     id: 11,
     title: "Мессенджер с WebSocket и TypeScript",
@@ -53,7 +72,27 @@ export const portfolioItems = [
 			getImageUrl("email-discount-desktop-footer.png")
 		],
 	},
-
+	{
+  id: 12,
+  title: "Коллекция веб-анимаций",
+  description: "Слайдер с 3D-эффектами, анимациями текста и карточек с использованием современных библиотек",
+  icon: iconNames.globe,
+  tech: [
+    "Three.js",
+    "GSAP",
+    "Framer Motion",
+    "React Bits",
+    "TypeScript",
+    "Vite"
+  ],
+  featured: true,
+  demo: "https://animations-portfolio.vercel.app",
+  link: ["https://github.com/Natalia-Vorobeva/animations"],
+  images: [
+   // getImageUrl("animations-preview-1.png"),
+   // getImageUrl("animations-preview-2.png")
+  ]
+},
 	{
 		id: 2,
 		title: "Карусели и слайдеры",
