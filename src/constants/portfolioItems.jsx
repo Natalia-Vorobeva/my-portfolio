@@ -43,7 +43,7 @@ export const portfolioItems = [
     getImageUrl("ticket-office-halls.png"),
     getImageUrl("ticket-office-ticket.png")
   ]
-}б
+},
   {
     id: 2,
     title: "Мессенджер с WebSocket и TypeScript",
