@@ -26,7 +26,7 @@ export const iconNames = {
 
 export const portfolioItems = [
  {
-  id: 12,
+  id: 1,
   title: "Ticket Office — онлайн-бронирование билетов",
   description: "Интерактивный сервис для выбора фильмов, дат и мест в кинотеатре с визуальной схемой зала, таймером бронирования и сохранением данных в localStorage.",
   icon: iconNames.ticket, // или любую другую иконку, например, из react-icons
@@ -45,7 +45,7 @@ export const portfolioItems = [
   ]
 }б
   {
-    id: 11,
+    id: 2,
     title: "Мессенджер с WebSocket и TypeScript",
     description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в PostgreSQL в prod и SQLite3 в dev.",
     icon: iconNames.comments,
@@ -60,7 +60,7 @@ export const portfolioItems = [
     ]
   },
 	{
-		id: 1,
+		id: 3,
 		title: "Email-письмо",
 		description: "Адаптивный email-шаблон с кросс-клиентской совместимостью",
 		icon: iconNames.check,
@@ -75,7 +75,7 @@ export const portfolioItems = [
 		],
 	},
 	{
-  id: 12,
+  id: 4,
   title: "Коллекция веб-анимаций",
   description: "Слайдер с 3D-эффектами, анимациями текста и карточек с использованием современных библиотек",
   icon: iconNames.globe,
@@ -96,7 +96,7 @@ export const portfolioItems = [
   ]
 },
 	{
-		id: 2,
+		id: 5,
 		title: "Карусели и слайдеры",
 		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
 		icon: iconNames.hands,
@@ -113,7 +113,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 3,
+		id: 6,
 		title: "ToDo List Fullstack",
 		description: "Приложение для управления задачами с регистрацией, аутентификацией через JWT и SQLite базой данных",
 		icon: iconNames.check,
@@ -127,7 +127,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 4,
+		id: 7,
 		title: "Мессенджер Real-time",
 		description: "Чат-приложение с комментами, загрузкой файлов",
 		icon: iconNames.comments,
@@ -143,7 +143,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 5,
+		id: 8,
 		title: "Дашборд мировых новостей",
 		description: "Визуализация и фильтрация мировых новостей в реальном времени с помощью d3.js",
 		icon: iconNames.globe,
@@ -158,7 +158,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 6,
+		id: 9,
 		title: "Верстка Bootstrap",
 		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
 		icon: iconNames.comments,
@@ -173,7 +173,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 7,
+		id: 10,
 		title: "Сайт-визитка дипломата",
 		description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
 		icon: iconNames.gem,
@@ -191,7 +191,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 8,
+		id: 11,
 		title: "Сайт парикмахера",
 		description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
 		icon: iconNames.cut,
@@ -207,7 +207,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 9,
+		id: 12,
 		title: "Студия маникюра",
 		description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
 		icon: iconNames.paint,
@@ -221,7 +221,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 10,
+		id: 13,
 		title: "Студия шугаринга",
 		description: "Еще один вариант сайта для мастера шугаринга с галереей и онлайн-записью",
 		icon: iconNames.sparkles,
