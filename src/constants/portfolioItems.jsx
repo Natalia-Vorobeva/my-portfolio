@@ -25,57 +25,58 @@ export const iconNames = {
 };
 
 export const portfolioItems = [
- {
-  id: 1,
-  title: "Ticket Office — онлайн-бронирование билетов",
-  description: "Интерактивный сервис для выбора фильмов, дат и мест в кинотеатре с визуальной схемой зала, таймером бронирования и сохранением данных в localStorage.",
-  icon: iconNames.ticket, // или любую другую иконку, например, из react-icons
-  tech: ["ReactJS", "JavaScript", "Redux Toolkit", "Vite", "Tailwindcss"],
-  featured: true,
-  demo: "https://ticket-office-booking.vercel.app/",
-  link: ["https://github.com/Natalia-Vorobeva/ticket-office"],
-  images: [
-    getImageUrl("ticket-office-main.png"),
-    getImageUrl("ticket-office-main-2.png"),
-    getImageUrl("ticket-office-main-3.png"),
-    getImageUrl("ticket-office-path.png"),
-    getImageUrl("ticket-office-hall.png"),
-    getImageUrl("ticket-office-halls.png"),
-    getImageUrl("ticket-office-ticket.png")
-  ]
-},
-  {
-    id: 2,
-    title: "Мессенджер с WebSocket и TypeScript",
-    description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в PostgreSQL в prod и SQLite3 в dev.",
-    icon: iconNames.comments,
-    tech: ["React 19", "TypeScript", "Redux Toolkit", "Socket.IO", "Node.js", "Express", "SQLite", "Vite", "Vitest"],
-    featured: true,
-    demo: "https://messenger-ts-websocket-unit.vercel.app",
-    link: ["https://github.com/Natalia-Vorobeva/messenger_ts_websocket_unit"],
-    images: [
-      getImageUrl("messenger-socket-info.png"),
-      getImageUrl("messenger-websocket-desktop-1.png"),
-      getImageUrl("messenger-websocket-mobile.png")
-    ]
-  },
+	{
+		id: 1,
+		title: "Ticket Office — онлайн-бронирование билетов",
+		description: "Интерактивный сервис для выбора фильмов, дат и мест в кинотеатре с визуальной схемой зала, таймером бронирования и сохранением данных в localStorage.",
+		icon: iconNames.ticket,
+		tech: ["ReactJS", "JavaScript", "Redux Toolkit", "Vite", "Tailwindcss"],
+		featured: true,
+		demo: "https://ticket-office-booking.vercel.app/",
+		link: ["https://github.com/Natalia-Vorobeva/ticket-office"],
+		images: [
+			getImageUrl("ticket-office-main.png"),
+			getImageUrl("ticket-office-main-2.png"),
+			getImageUrl("ticket-office-main-3.png"),
+			getImageUrl("ticket-office-path.png"),
+			getImageUrl("ticket-office-hall.png"),
+			getImageUrl("ticket-office-halls.png"),
+			getImageUrl("ticket-office-ticket.png")
+		]
+	},
+	{
+		id: 2,
+		title: "Мессенджер с WebSocket и TypeScript",
+		description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в PostgreSQL в prod и SQLite3 в dev.",
+		icon: iconNames.comments,
+		tech: ["React 19", "TypeScript", "Redux Toolkit", "Socket.IO", "Node.js", "Express", "SQLite", "Vite", "Vitest"],
+		featured: true,
+		demo: "https://messenger-ts-websocket-unit.vercel.app",
+		link: ["https://github.com/Natalia-Vorobeva/messenger_ts_websocket_unit"],
+		images: [
+			getImageUrl("messenger-socket-info.png"),
+			getImageUrl("messenger-websocket-desktop-1.png"),
+			getImageUrl("messenger-websocket-mobile.png")
+		]
+	},
 	{
 		id: 3,
-		title: "Email-письмо",
-		description: "Адаптивный email-шаблон с кросс-клиентской совместимостью",
-		icon: iconNames.check,
-		tech: ["HTML", "CSS", "Email-верстка", "Outlook VML", "Адаптивный дизайн"],
+		title: "Мессенджер Real-time",
+		description: "Чат-приложение с комментами, загрузкой файлов",
+		icon: iconNames.comments,
+		tech: ["ReactJS", "Node.js", "PostgreSQL", "Vercel"],
 		featured: true,
-		demo: "https://natalia-vorobeva.github.io/email-final-discount/",
+		demo: "https://messenger-full.vercel.app/",
 		link: [],
 		images: [
-			getImageUrl("email-discount-desktop-preview.png"),
-			getImageUrl("email-discount-mobile-preview.png"),
-			getImageUrl("email-discount-desktop-footer.png")
-		],
-	},	
+			getImageUrl("messenger.jpg"),
+			getImageUrl("messenger-mobile.png"),
+			getImageUrl("messenger-comment.png"),
+			getImageUrl("messenger-comment-mobile.png")
+		]
+	},
 	{
-		id: 5,
+		id: 4,
 		title: "Карусели и слайдеры",
 		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
 		icon: iconNames.hands,
@@ -92,7 +93,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 6,
+		id: 5,
 		title: "ToDo List Fullstack",
 		description: "Приложение для управления задачами с регистрацией, аутентификацией через JWT и SQLite базой данных",
 		icon: iconNames.check,
@@ -105,24 +106,9 @@ export const portfolioItems = [
 			getImageUrl("todolist-mobile.png")
 		]
 	},
+
 	{
-		id: 7,
-		title: "Мессенджер Real-time",
-		description: "Чат-приложение с комментами, загрузкой файлов",
-		icon: iconNames.comments,
-		tech: ["ReactJS", "Node.js", "PostgreSQL", "Vercel"],
-		featured: true,
-		demo: "https://messenger-full.vercel.app/",
-		link: [],
-		images: [
-			getImageUrl("messenger.jpg"),
-			getImageUrl("messenger-mobile.png"),
-			getImageUrl("messenger-comment.png"),
-			getImageUrl("messenger-comment-mobile.png")
-		]
-	},
-	{
-		id: 8,
+		id: 6,
 		title: "Дашборд мировых новостей",
 		description: "Визуализация и фильтрация мировых новостей в реальном времени с помощью d3.js",
 		icon: iconNames.globe,
@@ -137,8 +123,8 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 9,
-		title: "Верстка Bootstrap",
+		id: 7,
+		title: "Лендинг о курсе акварели",
 		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
 		icon: iconNames.comments,
 		tech: ["ReactJS", "jQuery", "Bootstrap4", "Vite"],
@@ -152,65 +138,81 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 10,
-		title: "Сайт-визитка дипломата",
-		description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
-		icon: iconNames.gem,
-		tech: ["ReactJS", "Vite", "i18n", "Мультиязычность"],
+		id: 8,
+		title: "Email-письмо",
+		description: "Адаптивный email-шаблон с кросс-клиентской совместимостью",
+		icon: iconNames.check,
+		tech: ["HTML", "CSS", "Email-верстка", "Outlook VML", "Адаптивный дизайн"],
 		featured: true,
-		demo: "https://officialstyle.vercel.app/",
+		demo: "https://natalia-vorobeva.github.io/email-final-discount/",
 		link: [],
 		images: [
-			getImageUrl("official.png"),
-			getImageUrl("rus_officialstyle.png"),
-			getImageUrl("ang_officialstyle.png"),
-			getImageUrl("form_officialstyle.png"),
-			getImageUrl("form_officialstyle-mobile.png"),
-			getImageUrl("menu_officialstyle-mobile.png")
-		]
+			getImageUrl("email-discount-desktop-preview.png"),
+			getImageUrl("email-discount-mobile-preview.png"),
+			getImageUrl("email-discount-desktop-footer.png")
+		],
 	},
-	{
-		id: 11,
-		title: "Сайт парикмахера",
-		description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
-		icon: iconNames.cut,
-		tech: ["ReactJS", "Vite", "Online Booking"],
-		demo: "https://hairdresser-portfolio.vercel.app/",
-		link: [],
-		images: [
-			getImageUrl("hairdresser.png"),
-			getImageUrl("hairdresser.jpg"),
-			getImageUrl("hairdresser-menu-mobile.png"),
-			getImageUrl("carousel_hairdresser-mobile.png"),
-			getImageUrl("form_hairdresser-mobile.png")
-		]
-	},
-	{
-		id: 12,
-		title: "Студия маникюра",
-		description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
-		icon: iconNames.paint,
-		tech: ["ReactJS", "Vite", "Tailwindcss"],
-		demo: "https://natalia-vorobeva.github.io/business_card_manicure/",
-		link: [],
-		images: [
-			getImageUrl("manicure.jpg"),
-			getImageUrl("gallery-manicure.png"),
-			getImageUrl("form-manicure.png")
-		]
-	},
-	{
-		id: 13,
-		title: "Студия шугаринга",
-		description: "Еще один вариант сайта для мастера шугаринга с галереей и онлайн-записью",
-		icon: iconNames.sparkles,
-		tech: ["ReactJS", "Vite", "Photo Gallery"],
-		demo: "https://natalia-vorobeva.github.io/business_card_sugaring/",
-		link: [],
-		images: [
-			getImageUrl("shugaring.jpg"),
-			getImageUrl("shugaring-2.png"),
-			getImageUrl("shugaring-3.jpg")			
-		]
-	},
+
+	// {
+	// 	id: 10,
+	// 	title: "Сайт-визитка дипломата",
+	// 	description: "Официальный сайт с поддержкой 3 языков (русский/английский/французский) и строгим дизайном",
+	// 	icon: iconNames.gem,
+	// 	tech: ["ReactJS", "Vite", "i18n", "Мультиязычность"],
+	// 	featured: true,
+	// 	demo: "https://officialstyle.vercel.app/",
+	// 	link: [],
+	// 	images: [
+	// 		getImageUrl("official.png"),
+	// 		getImageUrl("rus_officialstyle.png"),
+	// 		getImageUrl("ang_officialstyle.png"),
+	// 		getImageUrl("form_officialstyle.png"),
+	// 		getImageUrl("form_officialstyle-mobile.png"),
+	// 		getImageUrl("menu_officialstyle-mobile.png")
+	// 	]
+	// },
+	// {
+	// 	id: 11,
+	// 	title: "Сайт парикмахера",
+	// 	description: "Портфолио мастера с онлайн-записью, выбором услуги и расписанием",
+	// 	icon: iconNames.cut,
+	// 	tech: ["ReactJS", "Vite", "Online Booking"],
+	// 	demo: "https://hairdresser-portfolio.vercel.app/",
+	// 	link: [],
+	// 	images: [
+	// 		getImageUrl("hairdresser.png"),
+	// 		getImageUrl("hairdresser.jpg"),
+	// 		getImageUrl("hairdresser-menu-mobile.png"),
+	// 		getImageUrl("carousel_hairdresser-mobile.png"),
+	// 		getImageUrl("form_hairdresser-mobile.png")
+	// 	]
+	// },
+	// {
+	// 	id: 12,
+	// 	title: "Студия маникюра",
+	// 	description: "Сайт-визитка мастера маникюра с портфолио работ и онлайн-записью",
+	// 	icon: iconNames.paint,
+	// 	tech: ["ReactJS", "Vite", "Tailwindcss"],
+	// 	demo: "https://natalia-vorobeva.github.io/business_card_manicure/",
+	// 	link: [],
+	// 	images: [
+	// 		getImageUrl("manicure.jpg"),
+	// 		getImageUrl("gallery-manicure.png"),
+	// 		getImageUrl("form-manicure.png")
+	// 	]
+	// },
+	// {
+	// 	id: 13,
+	// 	title: "Студия шугаринга",
+	// 	description: "Еще один вариант сайта для мастера шугаринга с галереей и онлайн-записью",
+	// 	icon: iconNames.sparkles,
+	// 	tech: ["ReactJS", "Vite", "Photo Gallery"],
+	// 	demo: "https://natalia-vorobeva.github.io/business_card_sugaring/",
+	// 	link: [],
+	// 	images: [
+	// 		getImageUrl("shugaring.jpg"),
+	// 		getImageUrl("shugaring-2.png"),
+	// 		getImageUrl("shugaring-3.jpg")			
+	// 	]
+	// },
 ];
