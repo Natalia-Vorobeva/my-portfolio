@@ -27,6 +27,23 @@ export const iconNames = {
 export const portfolioItems = [
 	{
 		id: 1,
+		title: "Vacancy — поиск работы с фильтрами и избранным",
+		description: "Приложение для поиска вакансий с HeadHunter, фильтрацией по зарплате, удалёнке, опыту, дате. Избранное, скрытие вакансий, сохранённые запросы, модальное окно с деталями, бесконечная загрузка, кэширование навыков. React + Vite + Tailwind, FastAPI бэкенд.",
+		icon: iconNames.code, 
+		tech: ["ReactJS", "JavaScript", "Vite", "TailwindCSS", "FastAPI", "Python", "Requests", "BeautifulSoup", "HH.ru API"],
+		featured: true,
+		demo: "https://vacancy-ten.vercel.app/",
+		link: ["https://github.com/Natalia-Vorobeva/vacancy"],
+		images: [
+			getImageUrl("vacancy-main.app.png"),			
+			getImageUrl("vacancy-modal.png"),
+			getImageUrl("vacancy-mobile.png"),
+			getImageUrl("vacancy-mobile-fav.png"),
+			getImageUrl("vacancy-mobile-modal.png"),
+		]
+	},
+	{
+		id: 2,
 		title: "Ticket Office — онлайн-бронирование билетов",
 		description: "Интерактивный сервис для выбора фильмов, дат и мест в кинотеатре с визуальной схемой зала, таймером бронирования и сохранением данных в localStorage.",
 		icon: iconNames.ticket,
@@ -45,7 +62,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 2,
+		id: 3,
 		title: "Мессенджер с WebSocket и TypeScript",
 		description: "Трёхколоночный чат с real-time синхронизацией, перемещением сообщений, лайками, комментариями и сохранением данных в PostgreSQL в prod и SQLite3 в dev.",
 		icon: iconNames.comments,
@@ -60,7 +77,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 3,
+		id: 4,
 		title: "Мессенджер Real-time",
 		description: "Чат-приложение с комментами, загрузкой файлов",
 		icon: iconNames.comments,
@@ -76,7 +93,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 4,
+		id: 5,
 		title: "Карусели и слайдеры",
 		description: "Коллекция различных слайдеров для сайтов: Swiper, Embla, Splide, Lightbox",
 		icon: iconNames.hands,
@@ -93,7 +110,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 5,
+		id: 6,
 		title: "ToDo List Fullstack",
 		description: "Приложение для управления задачами с регистрацией, аутентификацией через JWT и SQLite базой данных",
 		icon: iconNames.check,
@@ -108,7 +125,7 @@ export const portfolioItems = [
 	},
 
 	{
-		id: 6,
+		id: 7,
 		title: "Дашборд мировых новостей",
 		description: "Визуализация и фильтрация мировых новостей в реальном времени с помощью d3.js",
 		icon: iconNames.globe,
@@ -123,7 +140,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 7,
+		id: 8,
 		title: "Лендинг о курсе акварели",
 		description: "Верстка и доработка существующего сайта с адаптивным дизайном",
 		icon: iconNames.comments,
@@ -138,7 +155,7 @@ export const portfolioItems = [
 		]
 	},
 	{
-		id: 8,
+		id: 9,
 		title: "Email-письмо",
 		description: "Адаптивный email-шаблон с кросс-клиентской совместимостью",
 		icon: iconNames.check,
